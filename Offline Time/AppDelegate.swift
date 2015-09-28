@@ -89,20 +89,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     //  Wifi
     func stopWifi() {
         var error: NSError?
-        let wifi = CWInterface(interfaceName: "en0")
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
         let result = wifi.setPower(false, error: &error)
+        println()
     }
     
     func startWifi() {
         var error: NSError?
-        let wifi = CWInterface(interfaceName: "en0")
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
         let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
     @IBAction func onSelectTime(sender: AnyObject) {
-        println("You wanna start?!")
-        println(self.sliderView?.requestedMinutes)
         if self.timer == nil {
             self.sliderView?.timeSlider.enabled = false
             self.popupMenu?.startMenuItem.title = "Cancel"
@@ -133,9 +134,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func cancelTimer() {
         println("Canceling timer")
         self.timer?.invalidate()
-        self.timer == nil
+        self.timer = nil
         self.sliderView?.timeSlider.enabled = true
         self.popupMenu?.startMenuItem.enabled = true
         self.startWifi()
+        self.popupMenu?.startMenuItem.title = "Start"
     }
 }
