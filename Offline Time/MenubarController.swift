@@ -9,9 +9,5 @@
 import Cocoa
 
 class MenubarController: NSObject {
-    let STATUS_ITEM_VIEW_WIDTH: CGFloat = 2.40
-    
-    override init() {
-        let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(STATUS_ITEM_VIEW_WIDTH)
-    }
+
 }

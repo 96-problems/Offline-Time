@@ -11,9 +11,14 @@
 		40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40076F991BB8CF17002DB024 /* Images.xcassets */; };
 		40076FA91BB8CF17002DB024 /* Offline_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FA81BB8CF17002DB024 /* Offline_TimeTests.swift */; };
 		40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FB21BB8CF2A002DB024 /* MainMenu.xib */; };
-		40076FB51BB8CF76002DB024 /* MenubarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FB41BB8CF76002DB024 /* MenubarController.swift */; };
 		40076FB71BB8D008002DB024 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40076FB61BB8D008002DB024 /* CoreWLAN.framework */; };
 		40076FBF1BB8D275002DB024 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40076FBE1BB8D275002DB024 /* Cocoa.framework */; };
+		40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FC41BB8DC36002DB024 /* PopupMenu.xib */; };
+		40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FC61BB8DC9C002DB024 /* PopupMenu.swift */; };
+		408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E301BB8FB43001E3515 /* SliderView.swift */; };
+		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
+		40A15C691BB8F4A1004A7FE2 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */; };
+		40A15C6C1BB8F6A3004A7FE2 /* MenubarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +40,15 @@
 		40076FA71BB8CF17002DB024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40076FA81BB8CF17002DB024 /* Offline_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offline_TimeTests.swift; sourceTree = "<group>"; };
 		40076FB21BB8CF2A002DB024 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = ../MainMenu.xib; sourceTree = "<group>"; };
-		40076FB41BB8CF76002DB024 /* MenubarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarController.swift; sourceTree = "<group>"; };
 		40076FB61BB8D008002DB024 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offline Time-Bridging-Header.h"; sourceTree = "<group>"; };
 		40076FBE1BB8D275002DB024 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		40076FC41BB8DC36002DB024 /* PopupMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupMenu.xib; sourceTree = "<group>"; };
+		40076FC61BB8DC9C002DB024 /* PopupMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
+		408B2E301BB8FB43001E3515 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +95,14 @@
 			isa = PBXGroup;
 			children = (
 				40076F951BB8CF17002DB024 /* AppDelegate.swift */,
-				40076FB41BB8CF76002DB024 /* MenubarController.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
+				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
+				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
+				408B2E301BB8FB43001E3515 /* SliderView.swift */,
+				40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */,
+				40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */,
+				40076FC61BB8DC9C002DB024 /* PopupMenu.swift */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
 				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
 			);
@@ -200,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */,
+				40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */,
 				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
+				40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40076FB51BB8CF76002DB024 /* MenubarController.swift in Sources */,
+				40A15C6C1BB8F6A3004A7FE2 /* MenubarController.swift in Sources */,
+				40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
+				40A15C691BB8F4A1004A7FE2 /* SliderViewController.swift in Sources */,
+				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +424,7 @@
 				40076FAE1BB8CF17002DB024 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		40076FAF1BB8CF17002DB024 /* Build configuration list for PBXNativeTarget "Offline TimeTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +433,7 @@
 				40076FB11BB8CF17002DB024 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
