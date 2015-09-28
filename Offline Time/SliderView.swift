@@ -24,7 +24,7 @@ class SliderView: NSView {
         self.requestedMinutes = self.calculatedMinutes(sender.integerValue)
         println("Requested minutes: \(self.requestedMinutes)")
         self.minutesRemaining = self.requestedMinutes
-        self.remainingLabel.stringValue = "Currently Selected: \(self.convertMinutesIntoRegularFormat(self.requestedMinutes))"
+        self.remainingLabel.stringValue = "Timer: \(self.convertMinutesIntoRegularFormat(self.requestedMinutes))"
     }
     
     func confirmSelectedTime() {
