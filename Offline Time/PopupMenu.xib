@@ -16,6 +16,7 @@
                         <binding destination="QoI-yh-mXV" name="value" keyPath="values.quitMenuItem" id="1dW-IF-hHD"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="Y6e-0a-gsY"/>
                 <menuItem title="LongTextSoThatMenuIsWide" id="LB0-Bn-f25">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
