@@ -8,10 +8,16 @@
 
 import Cocoa
 
+protocol SALViewDelegate {
+    func toggledSetting(state: Int)
+}
+
 class SALView: NSView {
     let APP_BUNDLE_IDENTIFIER = "com.96Problems.Offline-Time"
     
     @IBOutlet var button: NSButton!
+    
+    var customDelegate: SALViewDelegate?
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -21,6 +27,7 @@ class SALView: NSView {
     
     @IBAction func toggleSetting(sender: NSButton) {
         println("Start At Login setting: \(sender.integerValue)")
+        self.customDelegate?.toggledSetting(sender.integerValue)
 //        let loginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
 //        
 //        let isLoginItem = loginController.startAtLogin

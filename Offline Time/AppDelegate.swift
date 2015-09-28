@@ -9,9 +9,12 @@
 import Cocoa
 import Foundation
 import CoreWLAN
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    var mainBundle = NSBundle.mainBundle()
+    var helperBundle: NSBundle!
     
     var statusItem: NSStatusItem?
     var sliderView: SliderView?
@@ -23,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var confTextManager: ConfirmationTextManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+//        let path = self.mainBundle.bundlePath.stringByAppendingPathComponent("Contents/Library/LoginItems/Offline Time Helper.app")
+//        self.helperBundle = NSBundle(path: path)
         self.setupStatusItem()
     }
     
@@ -74,6 +79,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         self.popupMenu!.startAtLoginMenuItem.view = salView
+        (self.popupMenu!.startAtLoginMenuItem.view as! SALView).customDelegate = self.popupMenu
+        let shouldStartOnStartup = PALoginItemUtility.isCurrentApplicatonInLoginItems()
+        if shouldStartOnStartup {
+            salView.button.integerValue = 1
+        }
         
         
         // Separator
@@ -187,7 +197,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension AppDelegate: PopupMenuDelegate {
-    func onToggleStartup() {
+    func onToggleStartup(state: Int) {
+        if state == 1 {
+            PALoginItemUtility.addCurrentApplicatonToLoginItems()
+        } else {
+            PALoginItemUtility.removeCurrentApplicatonToLoginItems()
+        }
     }
     
     func onRequestQuit() {

@@ -9,7 +9,7 @@
 import Cocoa
 
 protocol PopupMenuDelegate {
-    func onToggleStartup()
+    func onToggleStartup(state: Int)
     func onRequestQuit()
 }
 
@@ -20,7 +20,6 @@ class PopupMenu: NSMenu {
     @IBOutlet var sliderMenuItem: NSMenuItem!
     @IBOutlet var startAtLoginMenuItem: NSMenuItem!
     var startMenuItem: NSMenuItem!
-
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,10 +34,17 @@ class PopupMenu: NSMenu {
     }
     
     @IBAction func toggleStartup(sender:AnyObject) {
-        self.customDelegate?.onToggleStartup()
+        println("Toggled")
+        self.customDelegate?.onToggleStartup(sender.integerValue)
     }
     
     @IBAction func quitButtonPressed(sender: AnyObject) {
         self.customDelegate?.onRequestQuit()
+    }
+}
+
+extension PopupMenu: SALViewDelegate {
+    func toggledSetting(state: Int) {
+        self.toggleStartup(state)
     }
 }

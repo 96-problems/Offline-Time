@@ -16,13 +16,13 @@
 		40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FC41BB8DC36002DB024 /* PopupMenu.xib */; };
 		40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FC61BB8DC9C002DB024 /* PopupMenu.swift */; };
 		408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E301BB8FB43001E3515 /* SliderView.swift */; };
-		408B2E381BB90EA9001E3515 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E341BB90EA9001E3515 /* .gitignore */; };
-		408B2E391BB90EA9001E3515 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E351BB90EA9001E3515 /* README.md */; };
-		408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E371BB90EA9001E3515 /* StartAtLoginController.m */; };
 		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
 		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
 		408B2E451BB92381001E3515 /* ConfirmationText.plist in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E441BB92381001E3515 /* ConfirmationText.plist */; };
 		408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */; };
+		408B2EB51BB93DCA001E3515 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */; };
+		408B2EB71BB93E87001E3515 /* Offline Time Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408B2EB11BB93DBC001E3515 /* Offline Time Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		408B2EB91BB94558001E3515 /* PALoginItemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2EB81BB94558001E3515 /* PALoginItemUtility.m */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,34 @@
 			remoteGlobalIDString = 40076F8F1BB8CF17002DB024;
 			remoteInfo = "Offline Time";
 		};
+		408B2EB01BB93DBC001E3515 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 408B2E8B1BB93DBB001E3515;
+			remoteInfo = "Offline Time Helper";
+		};
+		408B2EB21BB93DBC001E3515 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 408B2E9B1BB93DBB001E3515;
+			remoteInfo = "Offline Time HelperTests";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		408B2EB61BB93E68001E3515 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 7;
+			files = (
+				408B2EB71BB93E87001E3515 /* Offline Time Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		40076F901BB8CF17002DB024 /* Offline Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Offline Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,14 +78,14 @@
 		40076FC41BB8DC36002DB024 /* PopupMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupMenu.xib; sourceTree = "<group>"; };
 		40076FC61BB8DC9C002DB024 /* PopupMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		408B2E301BB8FB43001E3515 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
-		408B2E341BB90EA9001E3515 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		408B2E351BB90EA9001E3515 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		408B2E361BB90EA9001E3515 /* StartAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartAtLoginController.h; sourceTree = "<group>"; };
-		408B2E371BB90EA9001E3515 /* StartAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
 		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
 		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
 		408B2E441BB92381001E3515 /* ConfirmationText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfirmationText.plist; sourceTree = "<group>"; };
 		408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationTextManager.swift; sourceTree = "<group>"; };
+		408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Offline Time Helper.xcodeproj"; path = "Offline Time Helper/Offline Time Helper.xcodeproj"; sourceTree = "<group>"; };
+		408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		408B2EB81BB94558001E3515 /* PALoginItemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoginItemUtility.m; sourceTree = "<group>"; };
+		408B2EBA1BB94572001E3515 /* PALoginItemUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PALoginItemUtility.h; sourceTree = "<group>"; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408B2EB51BB93DCA001E3515 /* ServiceManagement.framework in Frameworks */,
 				40076FBF1BB8D275002DB024 /* Cocoa.framework in Frameworks */,
 				40076FB71BB8D008002DB024 /* CoreWLAN.framework in Frameworks */,
 			);
@@ -85,6 +113,8 @@
 		40076F871BB8CF17002DB024 = {
 			isa = PBXGroup;
 			children = (
+				408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */,
+				408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */,
 				40076FBE1BB8D275002DB024 /* Cocoa.framework */,
 				40076FB61BB8D008002DB024 /* CoreWLAN.framework */,
 				40076F921BB8CF17002DB024 /* Offline Time */,
@@ -114,9 +144,10 @@
 				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
 				40076FC61BB8DC9C002DB024 /* PopupMenu.swift */,
+				408B2EB81BB94558001E3515 /* PALoginItemUtility.m */,
+				408B2EBA1BB94572001E3515 /* PALoginItemUtility.h */,
 				408B2E3F1BB9111F001E3515 /* SALView.swift */,
 				408B2E301BB8FB43001E3515 /* SliderView.swift */,
-				408B2E331BB90EA9001E3515 /* StartAtLoginController */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
 			);
 			path = "Offline Time";
@@ -148,15 +179,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		408B2E331BB90EA9001E3515 /* StartAtLoginController */ = {
+		408B2EAC1BB93DBB001E3515 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				408B2E341BB90EA9001E3515 /* .gitignore */,
-				408B2E351BB90EA9001E3515 /* README.md */,
-				408B2E361BB90EA9001E3515 /* StartAtLoginController.h */,
-				408B2E371BB90EA9001E3515 /* StartAtLoginController.m */,
+				408B2EB11BB93DBC001E3515 /* Offline Time Helper.app */,
+				408B2EB31BB93DBC001E3515 /* Offline Time HelperTests.xctest */,
 			);
-			path = StartAtLoginController;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +198,7 @@
 				40076F8C1BB8CF17002DB024 /* Sources */,
 				40076F8D1BB8CF17002DB024 /* Frameworks */,
 				40076F8E1BB8CF17002DB024 /* Resources */,
+				408B2EB61BB93E68001E3515 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -226,6 +256,12 @@
 			mainGroup = 40076F871BB8CF17002DB024;
 			productRefGroup = 40076F911BB8CF17002DB024 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 408B2EAC1BB93DBB001E3515 /* Products */;
+					ProjectRef = 408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				40076F8F1BB8CF17002DB024 /* Offline Time */,
@@ -234,12 +270,28 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		408B2EB11BB93DBC001E3515 /* Offline Time Helper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Offline Time Helper.app";
+			remoteRef = 408B2EB01BB93DBC001E3515 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		408B2EB31BB93DBC001E3515 /* Offline Time HelperTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Offline Time HelperTests.xctest";
+			remoteRef = 408B2EB21BB93DBC001E3515 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		40076F8E1BB8CF17002DB024 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408B2E381BB90EA9001E3515 /* .gitignore in Resources */,
 				40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */,
 				40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */,
 				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
@@ -267,9 +319,8 @@
 				408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */,
 				408B2E401BB9111F001E3515 /* SALView.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
-				408B2E391BB90EA9001E3515 /* README.md in Sources */,
+				408B2EB91BB94558001E3515 /* PALoginItemUtility.m in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
-				408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
