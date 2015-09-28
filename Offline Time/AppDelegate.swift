@@ -13,9 +13,6 @@ import CoreWLAN
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var startAtLoginController = StartAtLoginController()
-    let APP_BUNDLE_IDENTIFIER = "com.96Problems.Offline-Time"
-    
     var statusItem: NSStatusItem?
     var sliderView: SliderView?
     var popupMenu: PopupMenu?
@@ -26,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var confTextManager: ConfirmationTextManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-//        self.startAtLoginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
         self.setupStatusItem()
     }
     
@@ -91,17 +87,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     //  Wifi
     func stopWifi() {
-//        var error: NSError?
-//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-//        let result = wifi.setPower(false, error: &error)
+        var error: NSError?
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+        let result = wifi.setPower(false, error: &error)
     }
     
     func startWifi() {
-//        var error: NSError?
-//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-//        let result = wifi.setPower(true, error: &error)
+        var error: NSError?
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+        let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
@@ -186,8 +182,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 extension AppDelegate: PopupMenuDelegate {
+    func onToggleStartup() {
+    }
+    
     func onRequestQuit() {
-        println("You wannna quit?")
         NSApplication.sharedApplication().terminate(self)
     }
 }

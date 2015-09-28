@@ -16,6 +16,9 @@
                 <menuItem isSeparatorItem="YES" id="btq-eV-2wx"/>
                 <menuItem title="&lt;&lt; Start At Login Stuff &gt;&gt;" id="OGk-wZ-zye">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleStartup:" target="SBS-PR-J85" id="QHc-kJ-bnR"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="PjG-0c-6y1"/>
                 <menuItem title="Quit" id="dmA-XB-4Gz">
