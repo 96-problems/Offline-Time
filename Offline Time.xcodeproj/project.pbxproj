@@ -15,6 +15,7 @@
 		40076FBF1BB8D275002DB024 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40076FBE1BB8D275002DB024 /* Cocoa.framework */; };
 		40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FC41BB8DC36002DB024 /* PopupMenu.xib */; };
 		40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FC61BB8DC9C002DB024 /* PopupMenu.swift */; };
+		405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 405558341BB9497A0044D232 /* PALoginItemUtility.m */; };
 		408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E301BB8FB43001E3515 /* SliderView.swift */; };
 		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
 		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
@@ -22,7 +23,6 @@
 		408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */; };
 		408B2EB51BB93DCA001E3515 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */; };
 		408B2EB71BB93E87001E3515 /* Offline Time Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 408B2EB11BB93DBC001E3515 /* Offline Time Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		408B2EB91BB94558001E3515 /* PALoginItemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2EB81BB94558001E3515 /* PALoginItemUtility.m */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +77,8 @@
 		40076FBE1BB8D275002DB024 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		40076FC41BB8DC36002DB024 /* PopupMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupMenu.xib; sourceTree = "<group>"; };
 		40076FC61BB8DC9C002DB024 /* PopupMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
+		405558331BB9497A0044D232 /* PALoginItemUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PALoginItemUtility.h; sourceTree = "<group>"; };
+		405558341BB9497A0044D232 /* PALoginItemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoginItemUtility.m; sourceTree = "<group>"; };
 		408B2E301BB8FB43001E3515 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
 		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
@@ -84,8 +86,6 @@
 		408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationTextManager.swift; sourceTree = "<group>"; };
 		408B2EAB1BB93DBB001E3515 /* Offline Time Helper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Offline Time Helper.xcodeproj"; path = "Offline Time Helper/Offline Time Helper.xcodeproj"; sourceTree = "<group>"; };
 		408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		408B2EB81BB94558001E3515 /* PALoginItemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoginItemUtility.m; sourceTree = "<group>"; };
-		408B2EBA1BB94572001E3515 /* PALoginItemUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PALoginItemUtility.h; sourceTree = "<group>"; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,10 +144,9 @@
 				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
 				40076FC61BB8DC9C002DB024 /* PopupMenu.swift */,
-				408B2EB81BB94558001E3515 /* PALoginItemUtility.m */,
-				408B2EBA1BB94572001E3515 /* PALoginItemUtility.h */,
 				408B2E3F1BB9111F001E3515 /* SALView.swift */,
 				408B2E301BB8FB43001E3515 /* SliderView.swift */,
+				405558321BB9497A0044D232 /* Vendor */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
 			);
 			path = "Offline Time";
@@ -177,6 +176,15 @@
 				40076FA71BB8CF17002DB024 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		405558321BB9497A0044D232 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				405558331BB9497A0044D232 /* PALoginItemUtility.h */,
+				405558341BB9497A0044D232 /* PALoginItemUtility.m */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		408B2EAC1BB93DBB001E3515 /* Products */ = {
@@ -319,7 +327,7 @@
 				408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */,
 				408B2E401BB9111F001E3515 /* SALView.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
-				408B2EB91BB94558001E3515 /* PALoginItemUtility.m in Sources */,
+				405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
