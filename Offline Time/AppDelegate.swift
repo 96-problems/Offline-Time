@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var menuViewController: NSViewController?
     var timer: NSTimer?
+    var runningInfinitely = false
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
 //        self.startAtLoginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
@@ -33,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
     }
     
     func setupStatusItem() {
@@ -92,7 +92,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
         let result = wifi.setPower(false, error: &error)
-        println()
     }
     
     func startWifi() {
@@ -104,15 +103,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     //  MARK: - Actions
     @IBAction func onSelectTime(sender: AnyObject) {
-        if self.timer == nil {
+        if self.timer == nil && !self.runningInfinitely {
             self.sliderView?.timeSlider.enabled = false
             self.popupMenu?.startMenuItem.title = "Cancel"
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
             self.stopWifi()
-            self.startTimer()
+            
+            if self.sliderView?.requestedMinutes != -1 {
+                self.startTimer()
+            } else {
+                self.runInfinitely()
+            }
         } else {
             println("We gotta cancel!")
             self.cancelTimer()
+            self.runningInfinitely = false
         }
     }
 
@@ -129,6 +134,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.cancelTimer()
             println("Done!")
         }
+    }
+    
+    func runInfinitely() {
+        println("Running infinitely")
+        self.runningInfinitely = true
     }
     
     func cancelTimer() {
