@@ -11,14 +11,19 @@ import Cocoa
 class PopupMenu: NSMenu {
     
     @IBOutlet var sliderMenuItem: NSMenuItem!
-    @IBOutlet var startMenuItem: NSMenuItem!
+    @IBOutlet var startAtLoginMenuItem: NSMenuItem!
+    var startMenuItem: NSMenuItem!
+
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func validateMenuItem(menuItem: NSMenuItem) -> Bool {
-        println(menuItem)
+        return true
+    }
+    
+    override func validateToolbarItem(theItem: NSToolbarItem) -> Bool {
         return true
     }
 }

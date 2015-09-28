@@ -16,9 +16,13 @@
 		40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FC41BB8DC36002DB024 /* PopupMenu.xib */; };
 		40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FC61BB8DC9C002DB024 /* PopupMenu.swift */; };
 		408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E301BB8FB43001E3515 /* SliderView.swift */; };
+		408B2E381BB90EA9001E3515 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E341BB90EA9001E3515 /* .gitignore */; };
+		408B2E391BB90EA9001E3515 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E351BB90EA9001E3515 /* README.md */; };
+		408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E371BB90EA9001E3515 /* StartAtLoginController.m */; };
+		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
+		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
+		408B2E431BB91534001E3515 /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E421BB91534001E3515 /* SharedInstance.swift */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
-		40A15C691BB8F4A1004A7FE2 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */; };
-		40A15C6C1BB8F6A3004A7FE2 /* MenubarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +50,14 @@
 		40076FC41BB8DC36002DB024 /* PopupMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupMenu.xib; sourceTree = "<group>"; };
 		40076FC61BB8DC9C002DB024 /* PopupMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		408B2E301BB8FB43001E3515 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		408B2E341BB90EA9001E3515 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		408B2E351BB90EA9001E3515 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		408B2E361BB90EA9001E3515 /* StartAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartAtLoginController.h; sourceTree = "<group>"; };
+		408B2E371BB90EA9001E3515 /* StartAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
+		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
+		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
+		408B2E421BB91534001E3515 /* SharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
-		40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
-		40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +104,16 @@
 			isa = PBXGroup;
 			children = (
 				40076F951BB8CF17002DB024 /* AppDelegate.swift */,
+				408B2E421BB91534001E3515 /* SharedInstance.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
 				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
+				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
 				408B2E301BB8FB43001E3515 /* SliderView.swift */,
-				40A15C6B1BB8F6A3004A7FE2 /* MenubarController.swift */,
-				40A15C681BB8F4A1004A7FE2 /* SliderViewController.swift */,
 				40076FC61BB8DC9C002DB024 /* PopupMenu.swift */,
+				408B2E3F1BB9111F001E3515 /* SALView.swift */,
+				408B2E331BB90EA9001E3515 /* StartAtLoginController */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
 				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
 			);
@@ -132,6 +143,17 @@
 				40076FA71BB8CF17002DB024 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		408B2E331BB90EA9001E3515 /* StartAtLoginController */ = {
+			isa = PBXGroup;
+			children = (
+				408B2E341BB90EA9001E3515 /* .gitignore */,
+				408B2E351BB90EA9001E3515 /* README.md */,
+				408B2E361BB90EA9001E3515 /* StartAtLoginController.h */,
+				408B2E371BB90EA9001E3515 /* StartAtLoginController.m */,
+			);
+			path = StartAtLoginController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +236,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408B2E381BB90EA9001E3515 /* .gitignore in Resources */,
 				40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */,
 				40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */,
 				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
 				40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */,
+				408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40A15C6C1BB8F6A3004A7FE2 /* MenubarController.swift in Sources */,
 				40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */,
+				408B2E401BB9111F001E3515 /* SALView.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
-				40A15C691BB8F4A1004A7FE2 /* SliderViewController.swift in Sources */,
+				408B2E391BB90EA9001E3515 /* README.md in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
+				408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */,
+				408B2E431BB91534001E3515 /* SharedInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

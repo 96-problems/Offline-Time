@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MenubarController" customModule="Offline_Time" customModuleProvider="target"/>
+        <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu id="SBS-PR-J85" customClass="PopupMenu" customModule="Offline_Time" customModuleProvider="target">
@@ -12,13 +12,13 @@
                 <menuItem title="LongTextSoThatMenuIsWide" id="LB0-Bn-f25">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
-                <menuItem title="Start" id="x1A-zs-7sf">
+                <menuItem title="&lt;&lt; Start At Login Stuff &gt;&gt;" id="OGk-wZ-zye">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
             <connections>
                 <outlet property="sliderMenuItem" destination="LB0-Bn-f25" id="Zji-Pa-w01"/>
-                <outlet property="startMenuItem" destination="x1A-zs-7sf" id="kL7-51-9tB"/>
+                <outlet property="startAtLoginMenuItem" destination="OGk-wZ-zye" id="7bk-SX-Ygj"/>
             </connections>
             <point key="canvasLocation" x="194.5" y="194.5"/>
         </menu>

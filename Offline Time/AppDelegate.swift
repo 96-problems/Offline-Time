@@ -12,25 +12,20 @@ import CoreWLAN
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    var startAtLoginController = StartAtLoginController()
+    let APP_BUNDLE_IDENTIFIER = "com.96Problems.Offline-Time"
+    
     var statusItem: NSStatusItem?
+    var sliderView: SliderView?
     var popupMenu: PopupMenu?
     
-    
-    var popupWindowController: NSWindowController?
     var menuViewController: NSViewController?
     var timer: NSTimer?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+//        self.startAtLoginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
         self.setupStatusItem()
-        
-        var objects: NSArray?
-//        var popupMenu = NSBundle.mainBundle().loadNibNamed("PopupMenu", owner: self, topLevelObjects: &objects)[0] as! PopupMenu
-//        self.statusItem.menu = popupMenu
-        //        self.statusItem.title = "Offline Time"
-        
-//        var error: NSError?
-//        let wifi = CWInterface(interfaceName: "en0")
-//        let result = wifi.setPower(false, error: &error)
     }
     
     func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply {
@@ -47,7 +42,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if let button = self.statusItem!.button {
             button.image = NSImage(named: "StatusBarButtonImage")
-//            button.action = Selector("togglePanel:")
         }
         
         //  Get menu
@@ -64,31 +58,84 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //  Get sliderView
         var views2: NSArray?
         let foo2 = NSBundle.mainBundle().loadNibNamed("SliderViewController", owner: self, topLevelObjects: &views2)
-        var sliderView: NSView!
         for view in views2! {
             if view.isMemberOfClass(SliderView) {
-                sliderView = view as! SliderView
+                self.sliderView = view as? SliderView
             }
         }
         
-//        let slider = NSSlider(frame: NSMakeRect(0, 0, 195, 20))
-        self.popupMenu!.startMenuItem.enabled = true
         self.popupMenu!.sliderMenuItem.view = sliderView
+        
+        //  Start at Login
+        var salView: SALView!
+        var views3: NSArray?
+        let foo3 = NSBundle.mainBundle().loadNibNamed("SALViewController", owner: self, topLevelObjects: &views3)
+        for view in views3! {
+            if view.isMemberOfClass(SALView) {
+                salView = view as! SALView
+            }
+        }
+        self.popupMenu!.startAtLoginMenuItem.view = salView
+        
+        
+        //  Start button
+        let startButtonMenuItem = NSMenuItem(title: "Start", action: "onSelectTime:", keyEquivalent: "")
+        self.popupMenu?.startMenuItem = startButtonMenuItem
+        self.popupMenu?.addItem(self.popupMenu!.startMenuItem)
+        
         self.statusItem?.menu = self.popupMenu
+    }
+    
+    //  Wifi
+    func stopWifi() {
+        var error: NSError?
+        let wifi = CWInterface(interfaceName: "en0")
+        let result = wifi.setPower(false, error: &error)
+    }
+    
+    func startWifi() {
+        var error: NSError?
+        let wifi = CWInterface(interfaceName: "en0")
+        let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
-    @IBAction func togglePanel(sender: AnyObject) {
-        println("Toggling panel")
-//        let currentEvent: NSEvent! = NSApp.currentEvent
-//        let eventFrame = currentEvent.
-//        let eventOrigin = eventFrame.origin
-//        let eventSize = eventFrame.size
-        
+    @IBAction func onSelectTime(sender: AnyObject) {
+        println("You wanna start?!")
+        println(self.sliderView?.requestedMinutes)
+        if self.timer == nil {
+            self.sliderView?.timeSlider.enabled = false
+            self.popupMenu?.startMenuItem.title = "Cancel"
+            println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
+            self.stopWifi()
+            self.startTimer()
+        } else {
+            println("We gotta cancel!")
+            self.cancelTimer()
+        }
+    }
 
+    func startTimer() {
+        //  Every 60 seconds
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "checkTimer", userInfo: nil, repeats: true)
     }
     
-    @IBAction func onSelectTime(sender: AnyObject) {
+    func checkTimer() {
+        self.sliderView?.minutesRemaining--
+        println("Time remaining: \(self.sliderView?.minutesRemaining)")
+        self.sliderView?.updateTimerText()
+        if self.sliderView?.minutesRemaining <= 0 {
+            self.cancelTimer()
+            println("Done!")
+        }
     }
-
+    
+    func cancelTimer() {
+        println("Canceling timer")
+        self.timer?.invalidate()
+        self.timer == nil
+        self.sliderView?.timeSlider.enabled = true
+        self.popupMenu?.startMenuItem.enabled = true
+        self.startWifi()
+    }
 }

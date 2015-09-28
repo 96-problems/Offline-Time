@@ -3,12 +3,12 @@
     {
       "idiom" : "mac",
       "scale" : "1x",
-      "filename" : "StatusBarButtonImage.png"
+      "filename" : "menubar_icon.png"
     },
     {
       "idiom" : "mac",
       "scale" : "2x",
-      "filename" : "StatusBarButtonImage@2x.png"
+      "filename" : "menubar_icon@2x.png"
     }
   ],
   "info" : {
