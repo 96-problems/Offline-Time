@@ -21,15 +21,20 @@ class SliderView: NSView {
     }
     
     @IBAction func timeChanged(sender: NSSlider) {
-        println("Changing time?")
         self.requestedMinutes = self.calculatedMinutes(sender.integerValue)
+        println("Requested minutes: \(self.requestedMinutes)")
         self.minutesRemaining = self.requestedMinutes
         self.remainingLabel.stringValue = "Currently Selected: \(self.convertMinutesIntoRegularFormat(self.requestedMinutes))"
     }
     
+    func confirmSelectedTime() {
+        self.requestedMinutes = self.calculatedMinutes(self.timeSlider.integerValue)
+        self.minutesRemaining = self.requestedMinutes
+    }
+    
     func calculatedMinutes(sliderValue: Int) -> Int {
 //        return 1
-        if minutesRemaining < 7 {
+        if sliderValue < 7 {
             return sliderValue * 10
         } else if sliderValue == 7 {
             return 90

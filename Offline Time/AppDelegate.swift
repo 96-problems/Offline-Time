@@ -113,8 +113,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.sliderView?.timeSlider.enabled = false
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
             self.stopWifi()
-            
             if self.sliderView?.requestedMinutes != -1 {
+                self.sliderView?.confirmSelectedTime()
                 self.startTimer()
             } else {
                 self.runInfinitely()
@@ -129,6 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 } else {
                     println("We gotta cancel!")
                     self.cancelTimer()
+                    self.showNotificationOnTimerCompletion()
                     self.runningInfinitely = false
                 }
             }
@@ -156,6 +157,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func runInfinitely() {
         println("Running infinitely")
+        if self.confTextManager == nil {
+            self.confTextManager = ConfirmationTextManager()
+        }
         self.runningInfinitely = true
     }
     
@@ -168,5 +172,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu?.startMenuItem.enabled = true
         self.startWifi()
         self.popupMenu?.startMenuItem.title = "Start"
+    }
+    
+    func showNotificationOnTimerCompletion() {
+        println("Sending notification")
+        let notification = NSUserNotification()
+        notification.title = "Offline Time"
+        notification.informativeText = "Your timer is up!"
+        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+    }
+}
+
+extension AppDelegate: NSUserNotificationCenterDelegate {
+    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
     }
 }
