@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var menuViewController: NSViewController?
     var timer: NSTimer?
     var runningInfinitely = false
+    var confTextManager: ConfirmationTextManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
 //        self.startAtLoginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
@@ -105,7 +106,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func onSelectTime(sender: AnyObject) {
         if self.timer == nil && !self.runningInfinitely {
             self.sliderView?.timeSlider.enabled = false
-            self.popupMenu?.startMenuItem.title = "Cancel"
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
             self.stopWifi()
             
@@ -115,14 +115,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.runInfinitely()
             }
         } else {
-            println("We gotta cancel!")
-            self.cancelTimer()
-            self.runningInfinitely = false
+            if self.confTextManager != nil {
+                println("Text count: \(self.confTextManager?.texts.count)")
+                println("Counter: \(self.confTextManager?.counter)")
+                self.confTextManager?.counter++
+                if self.confTextManager!.texts.count + 1 > self.confTextManager!.counter {
+                    self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
+                } else {
+                    println("We gotta cancel!")
+                    self.cancelTimer()
+                    self.runningInfinitely = false
+                }
+            }
         }
     }
 
     func startTimer() {
-        //  Every 60 seconds
+        if self.confTextManager == nil {
+            self.confTextManager = ConfirmationTextManager()
+        }
+        self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
+        //  Check every 60 seconds
         self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "checkTimer", userInfo: nil, repeats: true)
     }
     
@@ -145,6 +158,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         println("Canceling timer")
         self.timer?.invalidate()
         self.timer = nil
+        self.confTextManager?.counter = 1
         self.sliderView?.timeSlider.enabled = true
         self.popupMenu?.startMenuItem.enabled = true
         self.startWifi()

@@ -21,6 +21,8 @@
 		408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E371BB90EA9001E3515 /* StartAtLoginController.m */; };
 		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
 		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
+		408B2E451BB92381001E3515 /* ConfirmationText.plist in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E441BB92381001E3515 /* ConfirmationText.plist */; };
+		408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		408B2E371BB90EA9001E3515 /* StartAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
 		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
 		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
+		408B2E441BB92381001E3515 /* ConfirmationText.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfirmationText.plist; sourceTree = "<group>"; };
+		408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationTextManager.swift; sourceTree = "<group>"; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,14 +107,15 @@
 			children = (
 				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
 				40076F951BB8CF17002DB024 /* AppDelegate.swift */,
+				408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
 				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
-				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
 				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
-				408B2E301BB8FB43001E3515 /* SliderView.swift */,
+				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
 				40076FC61BB8DC9C002DB024 /* PopupMenu.swift */,
 				408B2E3F1BB9111F001E3515 /* SALView.swift */,
+				408B2E301BB8FB43001E3515 /* SliderView.swift */,
 				408B2E331BB90EA9001E3515 /* StartAtLoginController */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
 			);
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				40076F941BB8CF17002DB024 /* Info.plist */,
+				408B2E441BB92381001E3515 /* ConfirmationText.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */,
 				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
 				40076FC51BB8DC36002DB024 /* PopupMenu.xib in Resources */,
+				408B2E451BB92381001E3515 /* ConfirmationText.plist in Resources */,
 				408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */,
+				408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */,
 				408B2E401BB9111F001E3515 /* SALView.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
 				408B2E391BB90EA9001E3515 /* README.md in Sources */,
