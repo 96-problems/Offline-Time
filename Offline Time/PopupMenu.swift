@@ -8,8 +8,14 @@
 
 import Cocoa
 
+protocol PopupMenuDelegate {
+    func onRequestQuit()
+}
+
 class PopupMenu: NSMenu {
-    
+    var customDelegate: PopupMenuDelegate?
+
+    @IBOutlet var quitMenuItem: NSMenuItem!
     @IBOutlet var sliderMenuItem: NSMenuItem!
     @IBOutlet var startAtLoginMenuItem: NSMenuItem!
     var startMenuItem: NSMenuItem!
@@ -25,5 +31,9 @@ class PopupMenu: NSMenu {
     
     override func validateToolbarItem(theItem: NSToolbarItem) -> Bool {
         return true
+    }
+    
+    @IBAction func quitButtonPressed(sender: AnyObject) {
+        self.customDelegate?.onRequestQuit()
     }
 }

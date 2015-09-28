@@ -89,21 +89,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu?.addItem(self.popupMenu!.startMenuItem)
         
         self.statusItem?.menu = self.popupMenu
+
+        self.popupMenu?.customDelegate = self
     }
     
     //  Wifi
     func stopWifi() {
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(false, error: &error)
+//        var error: NSError?
+//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+//        let result = wifi.setPower(false, error: &error)
     }
     
     func startWifi() {
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(true, error: &error)
+//        var error: NSError?
+//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+//        let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
@@ -112,6 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.sliderView?.timeSlider.enabled = false
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
             self.stopWifi()
+            self.popupMenu?.itemAtIndex(3)?.enabled = false
             if self.sliderView?.requestedMinutes != -1 {
                 self.sliderView?.confirmSelectedTime()
                 self.startTimer()
@@ -139,7 +142,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if self.confTextManager == nil {
             self.confTextManager = ConfirmationTextManager()
         }
+        self.popupMenu?.quitMenuItem.hidden = true
         self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
+        self.sliderView?.updateSlider()
         //  Check every 60 seconds
         self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "checkTimer", userInfo: nil, repeats: true)
     }
@@ -148,6 +153,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.minutesRemaining--
         println("Time remaining: \(self.sliderView?.minutesRemaining)")
         self.sliderView?.updateTimerText()
+        self.sliderView?.updateSlider()
         if self.sliderView?.minutesRemaining <= 0 {
             self.cancelTimer()
             println("Done!")
@@ -164,6 +170,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func cancelTimer() {
         println("Canceling timer")
+        self.popupMenu?.quitMenuItem.hidden = true
         self.timer?.invalidate()
         self.timer = nil
         self.confTextManager?.counter = 1
@@ -179,6 +186,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         notification.title = "Offline Time"
         notification.informativeText = "Your timer is up!"
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+    }
+}
+
+extension AppDelegate: PopupMenuDelegate {
+    func onRequestQuit() {
+        println("You wannna quit?")
+        NSApplication.sharedApplication().terminate(self)
     }
 }
 
