@@ -79,6 +79,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu!.startAtLoginMenuItem.view = salView
         
         
+        // Separator
+        let separatorItem = NSMenuItem.separatorItem()
+        self.popupMenu?.addItem(separatorItem)
+        
         //  Start button
         let startButtonMenuItem = NSMenuItem(title: "Start", action: "onSelectTime:", keyEquivalent: "")
         self.popupMenu?.startMenuItem = startButtonMenuItem
