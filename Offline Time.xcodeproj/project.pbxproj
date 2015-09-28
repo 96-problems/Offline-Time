@@ -21,7 +21,6 @@
 		408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E371BB90EA9001E3515 /* StartAtLoginController.m */; };
 		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
 		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
-		408B2E431BB91534001E3515 /* SharedInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E421BB91534001E3515 /* SharedInstance.swift */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +55,6 @@
 		408B2E371BB90EA9001E3515 /* StartAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartAtLoginController.m; sourceTree = "<group>"; };
 		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
 		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
-		408B2E421BB91534001E3515 /* SharedInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedInstance.swift; sourceTree = "<group>"; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,8 +101,8 @@
 		40076F921BB8CF17002DB024 /* Offline Time */ = {
 			isa = PBXGroup;
 			children = (
+				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
 				40076F951BB8CF17002DB024 /* AppDelegate.swift */,
-				408B2E421BB91534001E3515 /* SharedInstance.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
 				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
@@ -115,7 +113,6 @@
 				408B2E3F1BB9111F001E3515 /* SALView.swift */,
 				408B2E331BB90EA9001E3515 /* StartAtLoginController */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
-				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
 			);
 			path = "Offline Time";
 			sourceTree = "<group>";
@@ -265,7 +262,6 @@
 				408B2E391BB90EA9001E3515 /* README.md in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
 				408B2E3A1BB90EA9001E3515 /* StartAtLoginController.m in Sources */,
-				408B2E431BB91534001E3515 /* SharedInstance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
