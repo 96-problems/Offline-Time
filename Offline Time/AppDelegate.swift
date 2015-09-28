@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if let button = self.statusItem!.button {
             button.image = NSImage(named: "StatusBarButtonImage")
+            button.image?.setTemplate(true)
         }
         
         //  Get menu
