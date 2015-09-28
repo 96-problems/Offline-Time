@@ -13,14 +13,14 @@
             <subviews>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-Fi-kwS">
                     <rect key="frame" x="18" y="40" width="195" height="26"/>
-                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="31" doubleValue="15.5" tickMarkPosition="above" numberOfTickMarks="31" allowsTickMarkValuesOnly="YES" sliderType="linear" id="3iS-1M-LYt"/>
+                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="31" doubleValue="1" tickMarkPosition="above" numberOfTickMarks="31" allowsTickMarkValuesOnly="YES" sliderType="linear" id="3iS-1M-LYt"/>
                     <connections>
                         <action selector="timeChanged:" target="c22-O7-iKe" id="Gir-UJ-eqO"/>
                     </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XK2-vR-7iq">
-                    <rect key="frame" x="18" y="7" width="170" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Currently selected: 10 min." id="XJr-Yj-SB0">
+                    <rect key="frame" x="18" y="7" width="195" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Currently Selected: 10 Minutes" id="XJr-Yj-SB0">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

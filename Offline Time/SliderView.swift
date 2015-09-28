@@ -84,15 +84,16 @@ class SliderView: NSView {
     }
     
     func convertMinutesIntoRegularFormat(minutes: Int) -> String {
-        if minutes < 60 {
+        if minutes < 60 && minutes != -1 {
             return "\(minutes) Minutes"
         } else if minutes == 60 {
             return "1 Hour"
         } else if minutes == 90 {
             return "1 Hour And 30 Minutes"
+        } else if minutes == -1 {
+            return "∞"
         } else {
             return "\(minutes/60) Hours"
         }
-        return ""
     }
 }
