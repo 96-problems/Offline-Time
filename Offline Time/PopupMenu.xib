@@ -12,7 +12,7 @@
                 <menuItem title="Quit" id="dmA-XB-4Gz">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitButtonPressed:" target="SBS-PR-J85" id="Bwv-MS-48G"/>
+                        <action selector="quitButtonPressed:" target="SBS-PR-J85" id="QXg-VX-DyN"/>
                         <binding destination="QoI-yh-mXV" name="value" keyPath="values.quitMenuItem" id="1dW-IF-hHD"/>
                     </connections>
                 </menuItem>
@@ -23,6 +23,9 @@
                 <menuItem isSeparatorItem="YES" id="btq-eV-2wx"/>
                 <menuItem title="&lt;&lt; Start At Login Stuff &gt;&gt;" id="OGk-wZ-zye">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleStartup:" target="SBS-PR-J85" id="QHc-kJ-bnR"/>
+                    </connections>
                 </menuItem>
             </items>
             <connections>
