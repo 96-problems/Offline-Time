@@ -108,8 +108,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.sliderView?.timeSlider.enabled = false
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
             self.stopWifi()
-            
             if self.sliderView?.requestedMinutes != -1 {
+                self.sliderView?.confirmSelectedTime()
                 self.startTimer()
             } else {
                 self.runInfinitely()
@@ -151,6 +151,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func runInfinitely() {
         println("Running infinitely")
+        if self.confTextManager == nil {
+            self.confTextManager = ConfirmationTextManager()
+        }
         self.runningInfinitely = true
     }
     
