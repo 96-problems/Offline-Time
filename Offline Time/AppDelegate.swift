@@ -128,6 +128,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 } else {
                     println("We gotta cancel!")
                     self.cancelTimer()
+                    self.showNotificationOnTimerCompletion()
                     self.runningInfinitely = false
                 }
             }
@@ -170,5 +171,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu?.startMenuItem.enabled = true
         self.startWifi()
         self.popupMenu?.startMenuItem.title = "Start"
+    }
+    
+    func showNotificationOnTimerCompletion() {
+        println("Sending notification")
+        let notification = NSUserNotification()
+        notification.title = "Offline Time"
+        notification.informativeText = "Your timer is up!"
+        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+    }
+}
+
+extension AppDelegate: NSUserNotificationCenterDelegate {
+    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
     }
 }
