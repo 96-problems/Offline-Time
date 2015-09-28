@@ -167,7 +167,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func cancelTimer() {
         println("Canceling timer")
-        self.popupMenu?.quitMenuItem.hidden = true
+        self.popupMenu?.quitMenuItem.hidden = false
         self.timer?.invalidate()
         self.timer = nil
         self.confTextManager?.counter = 1
