@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076F951BB8CF17002DB024 /* AppDelegate.swift */; };
+		40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40076F991BB8CF17002DB024 /* Images.xcassets */; };
+		40076FA91BB8CF17002DB024 /* Offline_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FA81BB8CF17002DB024 /* Offline_TimeTests.swift */; };
+		40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40076FB21BB8CF2A002DB024 /* MainMenu.xib */; };
+		40076FB51BB8CF76002DB024 /* MenubarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40076FB41BB8CF76002DB024 /* MenubarController.swift */; };
+		40076FB71BB8D008002DB024 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40076FB61BB8D008002DB024 /* CoreWLAN.framework */; };
+		40076FBF1BB8D275002DB024 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40076FBE1BB8D275002DB024 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40076FA31BB8CF17002DB024 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40076F881BB8CF17002DB024 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40076F8F1BB8CF17002DB024;
+			remoteInfo = "Offline Time";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40076F901BB8CF17002DB024 /* Offline Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Offline Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40076F941BB8CF17002DB024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40076F951BB8CF17002DB024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		40076F991BB8CF17002DB024 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		40076FA21BB8CF17002DB024 /* Offline TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Offline TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40076FA71BB8CF17002DB024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40076FA81BB8CF17002DB024 /* Offline_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offline_TimeTests.swift; sourceTree = "<group>"; };
+		40076FB21BB8CF2A002DB024 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = ../MainMenu.xib; sourceTree = "<group>"; };
+		40076FB41BB8CF76002DB024 /* MenubarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenubarController.swift; sourceTree = "<group>"; };
+		40076FB61BB8D008002DB024 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
+		40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offline Time-Bridging-Header.h"; sourceTree = "<group>"; };
+		40076FBE1BB8D275002DB024 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40076F8D1BB8CF17002DB024 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40076FBF1BB8D275002DB024 /* Cocoa.framework in Frameworks */,
+				40076FB71BB8D008002DB024 /* CoreWLAN.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40076F9F1BB8CF17002DB024 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40076F871BB8CF17002DB024 = {
+			isa = PBXGroup;
+			children = (
+				40076FBE1BB8D275002DB024 /* Cocoa.framework */,
+				40076FB61BB8D008002DB024 /* CoreWLAN.framework */,
+				40076F921BB8CF17002DB024 /* Offline Time */,
+				40076FA51BB8CF17002DB024 /* Offline TimeTests */,
+				40076F911BB8CF17002DB024 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40076F911BB8CF17002DB024 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40076F901BB8CF17002DB024 /* Offline Time.app */,
+				40076FA21BB8CF17002DB024 /* Offline TimeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40076F921BB8CF17002DB024 /* Offline Time */ = {
+			isa = PBXGroup;
+			children = (
+				40076F951BB8CF17002DB024 /* AppDelegate.swift */,
+				40076FB41BB8CF76002DB024 /* MenubarController.swift */,
+				40076F991BB8CF17002DB024 /* Images.xcassets */,
+				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
+				40076F931BB8CF17002DB024 /* Supporting Files */,
+				40076FBA1BB8D1F3002DB024 /* Offline Time-Bridging-Header.h */,
+			);
+			path = "Offline Time";
+			sourceTree = "<group>";
+		};
+		40076F931BB8CF17002DB024 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40076F941BB8CF17002DB024 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		40076FA51BB8CF17002DB024 /* Offline TimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				40076FA81BB8CF17002DB024 /* Offline_TimeTests.swift */,
+				40076FA61BB8CF17002DB024 /* Supporting Files */,
+			);
+			path = "Offline TimeTests";
+			sourceTree = "<group>";
+		};
+		40076FA61BB8CF17002DB024 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40076FA71BB8CF17002DB024 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40076F8F1BB8CF17002DB024 /* Offline Time */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40076FAC1BB8CF17002DB024 /* Build configuration list for PBXNativeTarget "Offline Time" */;
+			buildPhases = (
+				40076F8C1BB8CF17002DB024 /* Sources */,
+				40076F8D1BB8CF17002DB024 /* Frameworks */,
+				40076F8E1BB8CF17002DB024 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Offline Time";
+			productName = "Offline Time";
+			productReference = 40076F901BB8CF17002DB024 /* Offline Time.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40076FA11BB8CF17002DB024 /* Offline TimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40076FAF1BB8CF17002DB024 /* Build configuration list for PBXNativeTarget "Offline TimeTests" */;
+			buildPhases = (
+				40076F9E1BB8CF17002DB024 /* Sources */,
+				40076F9F1BB8CF17002DB024 /* Frameworks */,
+				40076FA01BB8CF17002DB024 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40076FA41BB8CF17002DB024 /* PBXTargetDependency */,
+			);
+			name = "Offline TimeTests";
+			productName = "Offline TimeTests";
+			productReference = 40076FA21BB8CF17002DB024 /* Offline TimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40076F881BB8CF17002DB024 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = 96Problems;
+				TargetAttributes = {
+					40076F8F1BB8CF17002DB024 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					40076FA11BB8CF17002DB024 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 40076F8F1BB8CF17002DB024;
+					};
+				};
+			};
+			buildConfigurationList = 40076F8B1BB8CF17002DB024 /* Build configuration list for PBXProject "Offline Time" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40076F871BB8CF17002DB024;
+			productRefGroup = 40076F911BB8CF17002DB024 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40076F8F1BB8CF17002DB024 /* Offline Time */,
+				40076FA11BB8CF17002DB024 /* Offline TimeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40076F8E1BB8CF17002DB024 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */,
+				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40076FA01BB8CF17002DB024 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40076F8C1BB8CF17002DB024 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40076FB51BB8CF76002DB024 /* MenubarController.swift in Sources */,
+				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40076F9E1BB8CF17002DB024 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40076FA91BB8CF17002DB024 /* Offline_TimeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40076FA41BB8CF17002DB024 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40076F8F1BB8CF17002DB024 /* Offline Time */;
+			targetProxy = 40076FA31BB8CF17002DB024 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40076FAA1BB8CF17002DB024 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40076FAB1BB8CF17002DB024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		40076FAD1BB8CF17002DB024 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Offline Time/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Offline Time/Offline Time-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40076FAE1BB8CF17002DB024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Offline Time/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Offline Time/Offline Time-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		40076FB01BB8CF17002DB024 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Offline TimeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Offline Time.app/Contents/MacOS/Offline Time";
+			};
+			name = Debug;
+		};
+		40076FB11BB8CF17002DB024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Offline TimeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Offline Time.app/Contents/MacOS/Offline Time";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40076F8B1BB8CF17002DB024 /* Build configuration list for PBXProject "Offline Time" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40076FAA1BB8CF17002DB024 /* Debug */,
+				40076FAB1BB8CF17002DB024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40076FAC1BB8CF17002DB024 /* Build configuration list for PBXNativeTarget "Offline Time" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40076FAD1BB8CF17002DB024 /* Debug */,
+				40076FAE1BB8CF17002DB024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		40076FAF1BB8CF17002DB024 /* Build configuration list for PBXNativeTarget "Offline TimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40076FB01BB8CF17002DB024 /* Debug */,
+				40076FB11BB8CF17002DB024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40076F881BB8CF17002DB024 /* Project object */;
+}
