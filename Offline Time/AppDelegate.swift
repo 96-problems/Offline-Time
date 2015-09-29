@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var menuViewController: NSViewController?
     var timer: NSTimer?
+    var secondsTimer: NSTimer?
     var runningInfinitely = false
     var confTextManager: ConfirmationTextManager?
     var wifiIconIsHidden = false
@@ -97,60 +98,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     //  Wifi
     func hideWifiIcon() {
-        println("Hiding wifi icon")
-        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
-        var menuItems = systemUIServer["menuExtras"] as! [String]
-        var wasActuallyAtZero = false
-        var i = 0
-        var wifiPos = 0
-        for menuItem in menuItems {
-            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i != 0 {
-                println("Wi-fi icon is shown at index \(i)")
-                wifiPos = i
-            } else if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i == 0 {
-                println("Wi-fi icon is hown at index 0")
-                wifiPos = 0
-                wasActuallyAtZero = true
-            }
-            i++
-        }
-        if wifiPos != 0 || (wifiPos == 0 && wasActuallyAtZero) {
-            menuItems.removeAtIndex(wifiPos)
-            self.wifiIconIsHidden = true
-            var newSystemUIServer: NSMutableDictionary = NSMutableDictionary(dictionary: systemUIServer)
-            newSystemUIServer.setValue(menuItems, forKey: "menuExtras")
-            self.defaults.setPersistentDomain(newSystemUIServer as [NSObject : AnyObject], forName: "com.apple.systemuiserver")
-            
-            //  Run shell command to restart SystemUIServer
-            let task = NSTask()
-            task.launchPath = "/bin/bash"
-            task.arguments = ["-c", "killall SystemUIServer -HUP"]
-            task.launch()
-        } else {
-            println("No need to hide it because it already is")
-        }
+//
+//        println("Hiding wifi icon")
+//        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
+//        var menuItems = systemUIServer["menuExtras"] as! [String]
+//        var wasActuallyAtZero = false
+//        var i = 0
+//        var wifiPos = 0
+//        for menuItem in menuItems {
+//            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i != 0 {
+//                println("Wi-fi icon is shown at index \(i)")
+//                wifiPos = i
+//            } else if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i == 0 {
+//                println("Wi-fi icon is hown at index 0")
+//                wifiPos = 0
+//                wasActuallyAtZero = true
+//            }
+//            i++
+//        }
+//        if wifiPos != 0 || (wifiPos == 0 && wasActuallyAtZero) {
+//            menuItems.removeAtIndex(wifiPos)
+//            self.wifiIconIsHidden = true
+//            var newSystemUIServer: NSMutableDictionary = NSMutableDictionary(dictionary: systemUIServer)
+//            newSystemUIServer.setValue(menuItems, forKey: "menuExtras")
+//            self.defaults.setPersistentDomain(newSystemUIServer as [NSObject : AnyObject], forName: "com.apple.systemuiserver")
+//            
+//            //  Run shell command to restart SystemUIServer
+//            let task = NSTask()
+//            task.launchPath = "/bin/bash"
+//            task.arguments = ["-c", "killall SystemUIServer -HUP"]
+//            task.launch()
+//        } else {
+//            println("No need to hide it because it already is")
+//        }
     }
     
     func showWifiIcon() {
-        println("Showing wifi icon")
-        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
-        var menuItems = systemUIServer["menuExtras"] as! [String]
-        println(menuItems)
-        var wifiIconIsAlreadyShown = false
-        for menuItem in menuItems {
-            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" {
-                wifiIconIsAlreadyShown = true
-            }
-        }
-        
-        if !wifiIconIsAlreadyShown {
-            //  Run shell command to show wifi icon
-            let task = NSTask()
-            task.launchPath = "/bin/bash"
-            task.arguments = ["-c", "defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Airport.menu'", "killall SystemUIServer -HUP"]
-            task.launch()
-        }
-        self.wifiIconIsHidden = false
+//        println("Showing wifi icon")
+//        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
+//        var menuItems = systemUIServer["menuExtras"] as! [String]
+//        println(menuItems)
+//        var wifiIconIsAlreadyShown = false
+//        for menuItem in menuItems {
+//            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" {
+//                wifiIconIsAlreadyShown = true
+//            }
+//        }
+//        
+//        if !wifiIconIsAlreadyShown {
+//            //  Run shell command to show wifi icon
+//            let task = NSTask()
+//            task.launchPath = "/bin/bash"
+//            task.arguments = ["-c", "defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Airport.menu'"]
+//            task.launch()
+//            
+//            let task2 = NSTask()
+//            task2.launchPath = "/bin/bash"
+//            task2.arguments = ["-c", "killall SystemUIServer -HUP"]
+//            task2.launch()
+//        }
+//        self.wifiIconIsHidden = false
     }
     
     func stopWifi() {
@@ -158,10 +165,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "StatusBarButtonImage2")
             button.image?.setTemplate(true)
         }
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(false, error: &error)
+//        var error: NSError?
+//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+//        let result = wifi.setPower(false, error: &error)
     }
     
     func startWifi() {
@@ -169,10 +176,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "StatusBarButtonImage")
             button.image?.setTemplate(true)
         }
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(true, error: &error)
+//        var error: NSError?
+//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+//        let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
@@ -215,17 +222,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.updateSlider()
         //  Check every 60 seconds
         self.timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "checkTimer", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSDefaultRunLoopMode)
+        NSRunLoop.currentRunLoop().addTimer(self.timer!, forMode: NSEventTrackingRunLoopMode)
+        
+        //  Check every 1 second
+        self.secondsTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "checkTimerEverySecond", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(self.secondsTimer!, forMode: NSDefaultRunLoopMode)
+        NSRunLoop.currentRunLoop().addTimer(self.secondsTimer!, forMode: NSEventTrackingRunLoopMode)
     }
     
     func checkTimer() {
         self.sliderView?.minutesRemaining--
-        println("Time remaining: \(self.sliderView?.minutesRemaining)")
-        self.sliderView?.updateTimerText()
+        println("Time remaining: \(self.sliderView?.minutesRemaining) Minutes.")
+        
         self.sliderView?.updateSlider()
         if self.sliderView?.minutesRemaining <= 0 {
             self.cancelTimer()
             println("Done!")
         }
+    }
+    
+    func checkTimerEverySecond() {
+        self.sliderView?.requestedSeconds--
+        self.sliderView?.updateTimerText()
     }
     
     func runInfinitely() {
