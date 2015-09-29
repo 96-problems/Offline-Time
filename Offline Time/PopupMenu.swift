@@ -15,7 +15,9 @@ protocol PopupMenuDelegate {
 
 class PopupMenu: NSMenu {
     var customDelegate: PopupMenuDelegate?
+    let constants = AppConstantsManager.sharedInstance
 
+    @IBOutlet var firstDraftMenuItem: NSMenuItem!
     @IBOutlet var quitMenuItem: NSMenuItem!
     @IBOutlet var sliderMenuItem: NSMenuItem!
     @IBOutlet var startAtLoginMenuItem: NSMenuItem!
@@ -36,6 +38,11 @@ class PopupMenu: NSMenu {
     @IBAction func toggleStartup(sender:AnyObject) {
         println("Toggled")
         self.customDelegate?.onToggleStartup(sender.integerValue)
+    }
+    
+    @IBAction func showFirstDraft(sender: AnyObject) {
+        let url = NSURL(string: self.constants.value("FirstDraftURL") as! String)
+        NSWorkspace.sharedWorkspace().openURL(url!)
     }
     
     @IBAction func quitButtonPressed(sender: AnyObject) {

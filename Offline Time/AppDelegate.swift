@@ -260,6 +260,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu?.quitMenuItem.hidden = false
         self.timer?.invalidate()
         self.timer = nil
+        self.secondsTimer?.invalidate()
+        self.secondsTimer = nil
+        self.sliderView?.remainingLabel.stringValue = "Timer: 10 Minutes"
+        self.sliderView?.timeSlider.integerValue = 1
         self.confTextManager?.counter = 1
         self.sliderView?.timeSlider.enabled = true
         self.popupMenu?.startMenuItem.enabled = true
