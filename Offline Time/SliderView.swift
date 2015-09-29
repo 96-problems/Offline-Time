@@ -22,6 +22,13 @@ class SliderView: NSView {
         super.drawRect(dirtyRect)
     }
     
+    func resetTimes() {
+        self.requestedMinutes = 10
+        self.minutesRemaining = 10
+        self.requestedSeconds = self.requestedMinutes * 60
+        self.secondsRemaining = self.minutesRemaining * 60
+    }
+    
     @IBAction func timeChanged(sender: NSSlider) {
         self.requestedMinutes = self.calculatedMinutes(sender.integerValue)
         self.requestedSeconds = self.requestedMinutes * 60

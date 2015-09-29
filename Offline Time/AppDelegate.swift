@@ -294,8 +294,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.remainingLabel.stringValue = "Offline Time: 10 Minutes"
         self.sliderView?.timeSlider.integerValue = 1
         self.confTextManager?.counter = 1
-        self.sliderView?.requestedMinutes = 10
-        self.sliderView?.requestedSeconds = 600
+        self.sliderView?.resetTimes()
         self.confTextManager = nil
     }
     
