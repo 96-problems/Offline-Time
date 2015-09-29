@@ -306,7 +306,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let notification = NSUserNotification()
         notification.title = "Offline Time"
 //        notification.subtitle = "Foo"
-        notification.informativeText = "Wow! You've been offline for \(durationText)."
+        notification.informativeText = "Congrats! You completed O.T. of \(durationText)🕒"
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
@@ -316,7 +316,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //println("Sending negative notification")
         let notification = NSUserNotification()
         notification.title = "Offline Time"
-        notification.informativeText = "Wow! You couldn't be offline for \(durationText)?? "
+        notification.informativeText = "Hmm… Too bad you missed your goal of \(durationText)😔"
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
 }
