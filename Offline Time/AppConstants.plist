@@ -4,5 +4,7 @@
 <dict>
 	<key>FirstDraftURL</key>
 	<string>http://www.96problems.com/first-draft</string>
+	<key>96ProblemsURL</key>
+	<string>http://www.96problems.com/</string>
 </dict>
 </plist>

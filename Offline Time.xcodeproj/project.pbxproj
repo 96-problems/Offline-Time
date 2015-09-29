@@ -141,9 +141,9 @@
 		40076F931BB8CF17002DB024 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				405BEA701BBA645600F216CF /* AppConstants.plist */,
 				40076F941BB8CF17002DB024 /* Info.plist */,
 				408B2E441BB92381001E3515 /* ConfirmationText.plist */,
-				405BEA701BBA645600F216CF /* AppConstants.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

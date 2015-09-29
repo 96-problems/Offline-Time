@@ -44,6 +44,11 @@ class PopupMenu: NSMenu {
         NSWorkspace.sharedWorkspace().openURL(url!)
     }
     
+    @IBAction func show96Problems(sender: AnyObject) {
+        let url = NSURL(string: self.constants.value("96ProblemsURL") as! String)
+        NSWorkspace.sharedWorkspace().openURL(url!)
+    }
+    
     @IBAction func quitButtonPressed(sender: AnyObject) {
         self.customDelegate?.onRequestQuit()
     }

@@ -193,7 +193,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            #if RELEASE
                 self.stopWifi()
 //            #endif
-            self.popupMenu?.itemAtIndex(3)?.enabled = false
+//            self.popupMenu?.itemAtIndex(3)?.enabled = false
             if self.sliderView?.requestedMinutes != -1 {
                 self.sliderView?.confirmSelectedTime()
                 self.startTimer()
