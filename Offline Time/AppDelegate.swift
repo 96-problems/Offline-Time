@@ -245,13 +245,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func checkTimerEverySecond() {
-        self.sliderView?.requestedSeconds--
+        self.sliderView?.secondsRemaining--
         self.sliderView?.updateTimerText()
         
-        if Reachability.isConnectedToNetwork() {
-            self.cancelTimer(shouldCongradulate: false)
-        } else {
-            //println("Good, your offline")
+        if self.sliderView!.secondsRemaining + 5 < self.sliderView?.requestedSeconds {
+            if Reachability.isConnectedToNetwork() {
+                self.cancelTimer(shouldCongradulate: false)
+            } else {
+                //println("Good, your offline")
+            }
         }
     }
     

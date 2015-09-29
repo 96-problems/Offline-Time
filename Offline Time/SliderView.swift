@@ -16,6 +16,7 @@ class SliderView: NSView {
     var requestedMinutes = 10
     var minutesRemaining = 10
     var requestedSeconds = 600
+    var secondsRemaining = 60
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -27,6 +28,7 @@ class SliderView: NSView {
         println("Requested minutes: \(self.requestedMinutes)")
         println("Requested seconds: \(self.requestedSeconds)")
         self.minutesRemaining = self.requestedMinutes
+        self.secondsRemaining = self.requestedSeconds
         
         self.convertSecondsToHHMMSS(self.requestedSeconds)
         self.remainingLabel.stringValue = "Timer: \(self.convertMinutesIntoRegularFormat(self.requestedMinutes))"
