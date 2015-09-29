@@ -17,4 +17,16 @@ class CustomSlider: NSSlider {
     override func setNeedsDisplayInRect(invalidRect: NSRect) {
         super.setNeedsDisplayInRect(self.bounds)
     }
+    
+    @IBAction func darkModeChanged(sender: AnyObject) {
+        self.needsDisplay = true
+    }
+    
+    func setupListener() {
+        NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: "darkModeChanged:", name: "AppleInterfaceThemeChangedNotification", object: nil)
+    }
+    
+    deinit {
+        NSDistributedNotificationCenter.defaultCenter().removeObserver(self)
+    }
 }

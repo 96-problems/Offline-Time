@@ -27,6 +27,7 @@
 		408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */; };
 		408B2EB51BB93DCA001E3515 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
+		40CEF6471BBA7E810042CB6F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEF6461BBA7E810042CB6F /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationTextManager.swift; sourceTree = "<group>"; };
 		408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		40CEF6461BBA7E810042CB6F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		40FA797A1BBA29F800A5A8E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
 				405BEA721BBA6E2A00F216CF /* CustomSlider.swift */,
 				405BEA741BBA6E4A00F216CF /* CustomSliderCell.swift */,
+				40CEF6461BBA7E810042CB6F /* Reachability.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				405558321BB9497A0044D232 /* Vendor */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
@@ -283,6 +286,7 @@
 				405BEA6F1BBA644100F216CF /* AppConstantsManager.swift in Sources */,
 				405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */,
 				405BEA751BBA6E4A00F216CF /* CustomSliderCell.swift in Sources */,
+				40CEF6471BBA7E810042CB6F /* Reachability.swift in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

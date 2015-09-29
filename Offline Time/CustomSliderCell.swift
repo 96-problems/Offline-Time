@@ -9,6 +9,8 @@
 import Cocoa
 
 class CustomSliderCell: NSSliderCell {
+    let dict = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) as! [String: AnyObject]
+    
     var activeColor = NSColor(calibratedRed: 236/255, green: 92/255, blue: 111/255, alpha: 1.0)
     var inactiveColor = NSColor(calibratedRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
     
@@ -17,17 +19,33 @@ class CustomSliderCell: NSSliderCell {
     }
     
     override func drawKnob(knobRect: NSRect) {
-        let image = NSImage(named: "SliderKnob")
+        let style = self.dict["AppleInterfaceStyle"]
+        var image = NSImage(named: "SliderKnob")
+        if let darkModeOn = style as? String {
+            println(darkModeOn)
+            if darkModeOn == "Dark" || darkModeOn == "dark" {
+                image = NSImage(named: "SliderKnobDark")
+            }
+        }
         //  For some patterns
 //        NSColor(patternImage: image!).set()
 //        NSRectFill(NSMakeRect(knobRect.origin.x, knobRect.origin.y, 20, 20))
         let x = knobRect.origin.x + (knobRect.size.width - image!.size.width) / 2
-        let y = NSMaxY(knobRect) - (knobRect.size.height - image!.size.height) / 2 - 18
+        let y = NSMaxY(knobRect) - (knobRect.size.height - image!.size.height) / 2 - 22
         image?.drawAtPoint(NSMakePoint(x, y), fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
     }
  
     
     override func drawBarInside(aRect: NSRect, flipped: Bool) {
+        let style = self.dict["AppleInterfaceStyle"]
+        if let darkModeOn = style as? String {
+            println(darkModeOn)
+            if darkModeOn == "Dark" || darkModeOn == "dark" {
+                self.activeColor = NSColor(calibratedRed: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            }
+        }
+        
+        
         var rect = aRect
         rect.size.height = CGFloat(5)
         let barRadius = CGFloat(2.5)
