@@ -13,7 +13,8 @@ import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var mainBundle = NSBundle.mainBundle()
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let mainBundle = NSBundle.mainBundle()
     var helperBundle: NSBundle!
     
     var statusItem: NSStatusItem?
@@ -24,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var timer: NSTimer?
     var runningInfinitely = false
     var confTextManager: ConfirmationTextManager?
+    var wifiIconIsHidden = false
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.setupStatusItem()
@@ -94,7 +96,68 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     //  Wifi
+    func hideWifiIcon() {
+        println("Hiding wifi icon")
+        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
+        var menuItems = systemUIServer["menuExtras"] as! [String]
+        var wasActuallyAtZero = false
+        var i = 0
+        var wifiPos = 0
+        for menuItem in menuItems {
+            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i != 0 {
+                println("Wi-fi icon is shown at index \(i)")
+                wifiPos = i
+            } else if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" && i == 0 {
+                println("Wi-fi icon is hown at index 0")
+                wifiPos = 0
+                wasActuallyAtZero = true
+            }
+            i++
+        }
+        if wifiPos != 0 || (wifiPos == 0 && wasActuallyAtZero) {
+            menuItems.removeAtIndex(wifiPos)
+            self.wifiIconIsHidden = true
+            var newSystemUIServer: NSMutableDictionary = NSMutableDictionary(dictionary: systemUIServer)
+            newSystemUIServer.setValue(menuItems, forKey: "menuExtras")
+            self.defaults.setPersistentDomain(newSystemUIServer as [NSObject : AnyObject], forName: "com.apple.systemuiserver")
+            
+            //  Run shell command to restart SystemUIServer
+            let task = NSTask()
+            task.launchPath = "/bin/bash"
+            task.arguments = ["-c", "killall SystemUIServer -HUP"]
+            task.launch()
+        } else {
+            println("No need to hide it because it already is")
+        }
+    }
+    
+    func showWifiIcon() {
+        println("Showing wifi icon")
+        let systemUIServer = self.defaults.persistentDomainForName("com.apple.systemuiserver") as! [String: AnyObject]
+        var menuItems = systemUIServer["menuExtras"] as! [String]
+        println(menuItems)
+        var wifiIconIsAlreadyShown = false
+        for menuItem in menuItems {
+            if menuItem == "/System/Library/CoreServices/Menu Extras/AirPort.menu" {
+                wifiIconIsAlreadyShown = true
+            }
+        }
+        
+        if !wifiIconIsAlreadyShown {
+            //  Run shell command to show wifi icon
+            let task = NSTask()
+            task.launchPath = "/bin/bash"
+            task.arguments = ["-c", "defaults write com.apple.systemuiserver menuExtras -array-add '/System/Library/CoreServices/Menu Extras/Airport.menu'", "killall SystemUIServer -HUP"]
+            task.launch()
+        }
+        self.wifiIconIsHidden = false
+    }
+    
     func stopWifi() {
+        if let button = self.statusItem!.button {
+            button.image = NSImage(named: "StatusBarButtonImage2")
+            button.image?.setTemplate(true)
+        }
         var error: NSError?
         let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
@@ -102,6 +165,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startWifi() {
+        if let button = self.statusItem!.button {
+            button.image = NSImage(named: "StatusBarButtonImage")
+            button.image?.setTemplate(true)
+        }
         var error: NSError?
         let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
@@ -112,8 +179,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func onSelectTime(sender: AnyObject) {
         if self.timer == nil && !self.runningInfinitely {
             self.sliderView?.timeSlider.enabled = false
+            self.hideWifiIcon()
             println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
-            self.stopWifi()
+//            #if RELEASE
+                self.stopWifi()
+//            #endif
             self.popupMenu?.itemAtIndex(3)?.enabled = false
             if self.sliderView?.requestedMinutes != -1 {
                 self.sliderView?.confirmSelectedTime()
@@ -129,6 +199,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 } else {
                     self.cancelTimer()
                     self.showNotificationOnTimerCompletion(self.sliderView!.requestedMinutes)
+                    self.showWifiIcon()
                     self.runningInfinitely = false
                 }
             }
@@ -173,7 +244,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.confTextManager?.counter = 1
         self.sliderView?.timeSlider.enabled = true
         self.popupMenu?.startMenuItem.enabled = true
-        self.startWifi()
+//        #if RELEASE
+            self.startWifi()
+//        #endif
         self.popupMenu?.startMenuItem.title = "Start"
     }
     
