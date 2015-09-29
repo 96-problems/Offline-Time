@@ -247,12 +247,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func checkTimerEverySecond() {
         self.sliderView?.secondsRemaining--
         self.sliderView?.updateTimerText()
+        println(self.sliderView?.secondsRemaining)
+        println(self.sliderView?.requestedSeconds)
         
         if self.sliderView!.secondsRemaining + 5 < self.sliderView?.requestedSeconds {
             if Reachability.isConnectedToNetwork() {
+                println("Online")
                 self.cancelTimer(shouldCongradulate: false)
             } else {
-                //println("Good, your offline")
+                println("Good, your offline")
             }
         }
     }
@@ -291,6 +294,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.remainingLabel.stringValue = "Offline Time: 10 Minutes"
         self.sliderView?.timeSlider.integerValue = 1
         self.confTextManager?.counter = 1
+        self.sliderView?.requestedMinutes = 10
+        self.sliderView?.requestedSeconds = 600
+        self.confTextManager = nil
     }
     
     func showNotificationOnTimerCompletion(duration: Int) {

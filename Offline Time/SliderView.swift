@@ -16,7 +16,7 @@ class SliderView: NSView {
     var requestedMinutes = 10
     var minutesRemaining = 10
     var requestedSeconds = 600
-    var secondsRemaining = 60
+    var secondsRemaining = 600
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
