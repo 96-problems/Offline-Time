@@ -18,9 +18,9 @@ class CustomSliderCell: NSSliderCell {
     
     override func drawKnob(knobRect: NSRect) {
         let image = NSImage(named: "SliderKnob")
+        //  For some patterns
 //        NSColor(patternImage: image!).set()
 //        NSRectFill(NSMakeRect(knobRect.origin.x, knobRect.origin.y, 20, 20))
-        println(image!.size)
         let x = knobRect.origin.x + (knobRect.size.width - image!.size.width) / 2
         let y = NSMaxY(knobRect) - (knobRect.size.height - image!.size.height) / 2 - 18
         image?.drawAtPoint(NSMakePoint(x, y), fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
