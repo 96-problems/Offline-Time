@@ -89,7 +89,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         //  Start button
-        let startButtonMenuItem = NSMenuItem(title: "Start", action: "onSelectTime:", keyEquivalent: "")
+        let startButtonMenuItem = NSMenuItem(title: "Start Offline Time", action: "onSelectTime:", keyEquivalent: "")
         self.popupMenu?.startMenuItem = startButtonMenuItem
         self.popupMenu?.insertItem(self.popupMenu!.startMenuItem, atIndex: 0)
         
@@ -278,7 +278,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        #if RELEASE
             self.startWifi()
 //        #endif
-        self.popupMenu?.startMenuItem.title = "Start"
+        self.popupMenu?.startMenuItem.title = "Start Offline Time"
 
         if shouldCongradulate {
             self.showNotificationOnTimerCompletion(self.sliderView!.requestedMinutes)
@@ -286,7 +286,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             self.showNotificationOnWifiOn(self.sliderView!.requestedMinutes)
         }
-        self.sliderView?.remainingLabel.stringValue = "Timer: 10 Minutes"
+        self.sliderView?.remainingLabel.stringValue = "Offline Time: 10 Minutes"
         self.sliderView?.timeSlider.integerValue = 1
         self.confTextManager?.counter = 1
     }

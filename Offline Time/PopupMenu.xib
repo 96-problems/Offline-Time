@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -9,38 +9,52 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <menu id="SBS-PR-J85" customClass="PopupMenu" customModule="Offline_Time" customModuleProvider="target">
             <items>
-                <menuItem isSeparatorItem="YES" id="Y6e-0a-gsY"/>
                 <menuItem title="LongTextSoThatMenuIsWide" id="LB0-Bn-f25">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="btq-eV-2wx"/>
-                <menuItem title="&lt;&lt; Start At Login Stuff &gt;&gt;" id="OGk-wZ-zye">
+                <menuItem title="96 Problems Stuff…" id="3L7-1a-iNO">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="toggleStartup:" target="SBS-PR-J85" id="QHc-kJ-bnR"/>
-                    </connections>
+                    <menu key="submenu" title="96 Problems Stuff…" id="t5N-BF-sDP">
+                        <items>
+                            <menuItem title="See The Perfect Writing App for O.T." id="PPp-A2-9X3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showFirstDraft:" target="SBS-PR-J85" id="8VB-gF-VMf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="See More from 96 Problems…" id="7A7-vK-yXL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showFirstDraft:" target="SBS-PR-J85" id="fVp-ZS-gYw"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="PjG-0c-6y1"/>
-                <menuItem title="Check Out First Draft" id="PPp-A2-9X3">
+                <menuItem title="Settings &amp; Things…" id="QET-a2-Xs9">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="showFirstDraft:" target="SBS-PR-J85" id="8VB-gF-VMf"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="Pkw-83-zB4"/>
-                <menuItem title="Quit" id="dmA-XB-4Gz">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="quitButtonPressed:" target="SBS-PR-J85" id="Bwv-MS-48G"/>
-                        <binding destination="QoI-yh-mXV" name="value" keyPath="values.quitMenuItem" id="1dW-IF-hHD"/>
-                    </connections>
+                    <menu key="submenu" title="Settings &amp; Things…" id="HRi-jn-WaB">
+                        <items>
+                            <menuItem title="&lt;&lt; Start At Login Stuff &gt;&gt;" id="L5X-dw-GB0">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="toggleStartup:" target="SBS-PR-J85" id="yxa-M8-rI3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Quit" keyEquivalent="q" id="hWA-Ys-oEi">
+                                <connections>
+                                    <action selector="quitButtonPressed:" target="SBS-PR-J85" id="qKt-RC-B5L"/>
+                                    <binding destination="QoI-yh-mXV" name="value" keyPath="values.quitMenuItem" id="1E4-3r-wHT"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                 </menuItem>
             </items>
             <connections>
                 <outlet property="firstDraftMenuItem" destination="PPp-A2-9X3" id="25c-i4-jqA"/>
-                <outlet property="quitMenuItem" destination="dmA-XB-4Gz" id="u83-xN-SFt"/>
                 <outlet property="sliderMenuItem" destination="LB0-Bn-f25" id="Zji-Pa-w01"/>
-                <outlet property="startAtLoginMenuItem" destination="OGk-wZ-zye" id="7bk-SX-Ygj"/>
             </connections>
             <point key="canvasLocation" x="194.5" y="194.5"/>
         </menu>
