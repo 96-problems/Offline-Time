@@ -21,7 +21,7 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="PjG-0c-6y1"/>
-                <menuItem title="First Draft" id="PPp-A2-9X3">
+                <menuItem title="Check Out First Draft" id="PPp-A2-9X3">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showFirstDraft:" target="SBS-PR-J85" id="8VB-gF-VMf"/>

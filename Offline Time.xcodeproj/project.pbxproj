@@ -18,6 +18,8 @@
 		405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 405558341BB9497A0044D232 /* PALoginItemUtility.m */; };
 		405BEA6F1BBA644100F216CF /* AppConstantsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BEA6E1BBA644100F216CF /* AppConstantsManager.swift */; };
 		405BEA711BBA645600F216CF /* AppConstants.plist in Resources */ = {isa = PBXBuildFile; fileRef = 405BEA701BBA645600F216CF /* AppConstants.plist */; };
+		405BEA731BBA6E2A00F216CF /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BEA721BBA6E2A00F216CF /* CustomSlider.swift */; };
+		405BEA751BBA6E4A00F216CF /* CustomSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405BEA741BBA6E4A00F216CF /* CustomSliderCell.swift */; };
 		408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E301BB8FB43001E3515 /* SliderView.swift */; };
 		408B2E3C1BB90FB3001E3515 /* SALViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408B2E3B1BB90FB3001E3515 /* SALViewController.xib */; };
 		408B2E401BB9111F001E3515 /* SALView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408B2E3F1BB9111F001E3515 /* SALView.swift */; };
@@ -55,6 +57,8 @@
 		405558341BB9497A0044D232 /* PALoginItemUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoginItemUtility.m; sourceTree = "<group>"; };
 		405BEA6E1BBA644100F216CF /* AppConstantsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstantsManager.swift; sourceTree = "<group>"; };
 		405BEA701BBA645600F216CF /* AppConstants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppConstants.plist; sourceTree = "<group>"; };
+		405BEA721BBA6E2A00F216CF /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		405BEA741BBA6E4A00F216CF /* CustomSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderCell.swift; sourceTree = "<group>"; };
 		408B2E301BB8FB43001E3515 /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		408B2E3B1BB90FB3001E3515 /* SALViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SALViewController.xib; sourceTree = "<group>"; };
 		408B2E3F1BB9111F001E3515 /* SALView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SALView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
 				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
+				405BEA721BBA6E2A00F216CF /* CustomSlider.swift */,
+				405BEA741BBA6E4A00F216CF /* CustomSliderCell.swift */,
 				40076F991BB8CF17002DB024 /* Images.xcassets */,
 				405558321BB9497A0044D232 /* Vendor */,
 				40076F931BB8CF17002DB024 /* Supporting Files */,
@@ -272,9 +278,11 @@
 				40076FC71BB8DC9C002DB024 /* PopupMenu.swift in Sources */,
 				408B2E471BB923D5001E3515 /* ConfirmationTextManager.swift in Sources */,
 				408B2E401BB9111F001E3515 /* SALView.swift in Sources */,
+				405BEA731BBA6E2A00F216CF /* CustomSlider.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
 				405BEA6F1BBA644100F216CF /* AppConstantsManager.swift in Sources */,
 				405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */,
+				405BEA751BBA6E4A00F216CF /* CustomSliderCell.swift in Sources */,
 				408B2E311BB8FB43001E3515 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

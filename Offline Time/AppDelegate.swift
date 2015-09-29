@@ -255,6 +255,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.runningInfinitely = true
         self.popupMenu?.quitMenuItem.hidden = true
         self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
+        self.sliderView?.remainingLabel.stringValue = "Running Infinitely"
     }
     
     func cancelTimer() {
