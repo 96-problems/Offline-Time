@@ -26,8 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var confTextManager: ConfirmationTextManager?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-//        let path = self.mainBundle.bundlePath.stringByAppendingPathComponent("Contents/Library/LoginItems/Offline Time Helper.app")
-//        self.helperBundle = NSBundle(path: path)
         self.setupStatusItem()
     }
     
@@ -125,15 +123,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         } else {
             if self.confTextManager != nil {
-                println("Text count: \(self.confTextManager?.texts.count)")
-                println("Counter: \(self.confTextManager?.counter)")
                 self.confTextManager?.counter++
                 if self.confTextManager!.texts.count + 1 > self.confTextManager!.counter {
                     self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
                 } else {
-                    println("We gotta cancel!")
                     self.cancelTimer()
-                    self.showNotificationOnTimerCompletion()
+                    self.showNotificationOnTimerCompletion(self.sliderView!.requestedMinutes)
                     self.runningInfinitely = false
                 }
             }
@@ -182,11 +177,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.popupMenu?.startMenuItem.title = "Start"
     }
     
-    func showNotificationOnTimerCompletion() {
+    func showNotificationOnTimerCompletion(duration: Int) {
+        let durationText = self.sliderView!.convertMinutesIntoRegularFormat(duration)
+        
         println("Sending notification")
         let notification = NSUserNotification()
         notification.title = "Offline Time"
-        notification.informativeText = "Your timer is up!"
+//        notification.subtitle = "Foo"
+        notification.informativeText = "Wow! You've been offline for \(durationText)."
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
 }
