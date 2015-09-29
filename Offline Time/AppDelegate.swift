@@ -165,10 +165,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "StatusBarButtonImage2")
             button.image?.setTemplate(true)
         }
-//        var error: NSError?
-//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-//        let result = wifi.setPower(false, error: &error)
+        var error: NSError?
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+        let result = wifi.setPower(false, error: &error)
     }
     
     func startWifi() {
@@ -176,10 +176,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named: "StatusBarButtonImage")
             button.image?.setTemplate(true)
         }
-//        var error: NSError?
-//        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
-//        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-//        let result = wifi.setPower(true, error: &error)
+        var error: NSError?
+        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
+        let result = wifi.setPower(true, error: &error)
     }
 
     //  MARK: - Actions
@@ -253,6 +253,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.confTextManager = ConfirmationTextManager()
         }
         self.runningInfinitely = true
+        self.popupMenu?.quitMenuItem.hidden = true
+        self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
     }
     
     func cancelTimer() {

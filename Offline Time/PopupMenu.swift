@@ -36,7 +36,6 @@ class PopupMenu: NSMenu {
     }
     
     @IBAction func toggleStartup(sender:AnyObject) {
-        println("Toggled")
         self.customDelegate?.onToggleStartup(sender.integerValue)
     }
     
