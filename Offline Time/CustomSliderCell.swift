@@ -9,15 +9,23 @@
 import Cocoa
 
 class CustomSliderCell: NSSliderCell {
-    var activeColor = NSColor(calibratedRed: 245/255, green: 0/255, blue: 0/255, alpha: 1.0)
-    var inactiveColor = NSColor(calibratedRed: 216/255, green: 216/255, blue: 216/255, alpha: 1.0)
+    var activeColor = NSColor(calibratedRed: 236/255, green: 92/255, blue: 111/255, alpha: 1.0)
+    var inactiveColor = NSColor(calibratedRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-//    override func drawKnob(knobRect: NSRect) {
-//    }
+    override func drawKnob(knobRect: NSRect) {
+        let image = NSImage(named: "SliderKnob")
+//        NSColor(patternImage: image!).set()
+//        NSRectFill(NSMakeRect(knobRect.origin.x, knobRect.origin.y, 20, 20))
+        println(image!.size)
+        let x = knobRect.origin.x + (knobRect.size.width - image!.size.width) / 2
+        let y = NSMaxY(knobRect) - (knobRect.size.height - image!.size.height) / 2 - 18
+        image?.drawAtPoint(NSMakePoint(x, y), fromRect: NSZeroRect, operation: NSCompositingOperation.CompositeSourceOver, fraction: 1.0)
+    }
+ 
     
     override func drawBarInside(aRect: NSRect, flipped: Bool) {
         var rect = aRect
