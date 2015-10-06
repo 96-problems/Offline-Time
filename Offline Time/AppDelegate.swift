@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if let button = self.statusItem!.button {
             button.image = NSImage(named: "StatusBarButtonImage")
-            button.image?.setTemplate(true)
+            button.image?.template = true
         }
         
         //  Get menu
@@ -168,9 +168,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image?.setTemplate(true)
 //        }
         var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(false, error: &error)
+        let result: Bool
+        do {
+            try wifi!.setPower(false)
+            result = true
+        } catch let error1 as NSError {
+            error = error1
+            result = false
+        }
     }
     
     func startWifi() {
@@ -179,9 +186,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image?.setTemplate(true)
 //        }
         var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(true, error: &error)
+        let result: Bool
+        do {
+            try wifi!.setPower(true)
+            result = true
+        } catch var error1 as NSError {
+            error = error1
+            result = false
+        }
     }
 
     //  MARK: - Actions
@@ -189,7 +203,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if self.timer == nil && !self.runningInfinitely {
             self.sliderView?.timeSlider.enabled = false
             self.hideWifiIcon()
-            println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
+            print("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
 //            #if RELEASE
                 self.stopWifi()
 //            #endif
@@ -234,34 +248,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func checkTimer() {
         self.sliderView?.minutesRemaining--
-        println("Time remaining: \(self.sliderView?.minutesRemaining) Minutes.")
+        print("Time remaining: \(self.sliderView?.minutesRemaining) Minutes.")
         
         self.sliderView?.updateSlider()
         
         if self.sliderView?.minutesRemaining <= 0 {
             self.cancelTimer(shouldCongradulate: true)
-            println("Done!")
+            print("Done!")
         }
     }
     
     func checkTimerEverySecond() {
         self.sliderView?.secondsRemaining--
         self.sliderView?.updateTimerText()
-        println(self.sliderView?.secondsRemaining)
-        println(self.sliderView?.requestedSeconds)
+        print(self.sliderView?.secondsRemaining)
+        print(self.sliderView?.requestedSeconds)
         
         if self.sliderView!.secondsRemaining + 5 < self.sliderView?.requestedSeconds {
             if Reachability.isConnectedToNetwork() {
-                println("Online")
+                print("Online")
                 self.cancelTimer(shouldCongradulate: false)
             } else {
-                println("Good, your offline")
+                print("Good, your offline")
             }
         }
     }
     
     func runInfinitely() {
-        println("Running infinitely")
+        print("Running infinitely")
         if self.confTextManager == nil {
             self.confTextManager = ConfirmationTextManager()
         }
@@ -271,8 +285,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.remainingLabel.stringValue = "Running Infinitely"
     }
     
-    func cancelTimer(#shouldCongradulate: Bool) {
-        println("Canceling timer")
+    func cancelTimer(shouldCongradulate shouldCongradulate: Bool) {
+        print("Canceling timer")
         self.popupMenu?.quitMenuItem.hidden = false
         self.timer?.invalidate()
         self.timer = nil
@@ -301,7 +315,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func showNotificationOnTimerCompletion(duration: Int) {
         let durationText = self.sliderView!.convertMinutesIntoRegularFormat(duration)
         
-        println("Sending positive notification")
+        print("Sending positive notification")
         let notification = NSUserNotification()
         notification.title = "Offline Time"
 //        notification.subtitle = "Foo"

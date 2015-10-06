@@ -32,8 +32,8 @@ class SliderView: NSView {
     @IBAction func timeChanged(sender: NSSlider) {
         self.requestedMinutes = self.calculatedMinutes(sender.integerValue)
         self.requestedSeconds = self.requestedMinutes * 60
-        println("Requested minutes: \(self.requestedMinutes)")
-        println("Requested seconds: \(self.requestedSeconds)")
+        Swift.print("Requested minutes: \(self.requestedMinutes)")
+        Swift.print("Requested seconds: \(self.requestedSeconds)")
         self.minutesRemaining = self.requestedMinutes
         self.secondsRemaining = self.requestedSeconds
         
