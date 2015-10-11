@@ -26,7 +26,7 @@ class SALView: NSView {
     }
     
     @IBAction func toggleSetting(sender: NSButton) {
-        println("Start At Login setting: \(sender.integerValue)")
+        Swift.print("Start At Login setting: \(sender.integerValue)")
         self.customDelegate?.toggledSetting(sender.integerValue)
 //        let loginController = StartAtLoginController(identifier: APP_BUNDLE_IDENTIFIER)
 //        
