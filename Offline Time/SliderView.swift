@@ -183,7 +183,7 @@ class SliderView: NSView {
 //        if self.requestedMinutes == -1 {
 //            self.remainingLabel.stringValue = "Running Infinitely."
 //        }
-        self.remainingLabel.stringValue = self.convertSecondsToHHMMSS(self.requestedSeconds)
+        self.remainingLabel.stringValue = self.convertSecondsToHHMMSS(self.secondsRemaining)
         self.remainingLabel.needsDisplay = true
     }
     
