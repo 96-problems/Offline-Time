@@ -191,16 +191,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image = NSImage(named: "StatusBarButtonImage2")
 //            button.image?.setTemplate(true)
 //        }
-        var error: NSError?
         let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result: Bool
         do {
             try wifi!.setPower(false)
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+        } catch let error as NSError {
+            print(error)
         }
     }
     
@@ -209,16 +205,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image = NSImage(named: "StatusBarButtonImage")
 //            button.image?.setTemplate(true)
 //        }
-        var error: NSError?
         let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result: Bool
         do {
             try wifi!.setPower(true)
-            result = true
-        } catch var error1 as NSError {
-            error = error1
-            result = false
+        } catch let error as NSError {
+            print(error)
         }
     }
 
@@ -362,6 +354,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func promptForTweet() {
         if self.defaults.boolForKey("SHOULD_PROMPT_TWEET") {
+            
+            //  Just in case someone completes infinite...
+            guard self.sliderView!.requestedMinutes > 0 else { return }
+            
             let alert = NSAlert()
             let askMsg = self.constants.value("SuggestTweetMsg") as? NSString
             alert.messageText = askMsg!.stringByReplacingOccurrencesOfString("\\n", withString: "\n")
@@ -371,9 +367,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 case NSAlertFirstButtonReturn:
                     let rawTweetURL = self.constants.value("TweetURL") as! String,
                         tweetURL = rawTweetURL.replaceCustomTagWithRequestedMinutes("\(self.sliderView!.requestedMinutes)min"),
-                        tweetURLstr = tweetURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-                    print(tweetURLstr)
-                    NSWorkspace.sharedWorkspace().openURL(NSURL(string: tweetURLstr)!)
+//                        tweetURLstr = tweetURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+                        tweetURLstr = tweetURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+                    
+                    NSWorkspace.sharedWorkspace().openURL(NSURL(string: tweetURLstr!)!)
                     break
                 default:
                     break
