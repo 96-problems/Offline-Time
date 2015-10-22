@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSJ-Fi-kwS" customClass="CustomSlider" customModule="Offline_Time" customModuleProvider="target">
-                    <rect key="frame" x="18" y="21" width="195" height="25"/>
+                    <rect key="frame" x="18" y="21" width="195" height="27"/>
                     <animations/>
                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="31" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="31" allowsTickMarkValuesOnly="YES" sliderType="linear" id="3iS-1M-LYt" customClass="CustomSliderCell" customModule="Offline_Time" customModuleProvider="target"/>
                     <connections>

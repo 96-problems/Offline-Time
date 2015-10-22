@@ -7,25 +7,25 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="7BY-dI-dk6" customClass="SALView" customModule="Offline_Time" customModuleProvider="target">
+        <customView id="dkS-k4-6KT" customClass="TweetView" customModule="Offline_Time" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="231" height="20"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gD0-Yr-Eb8">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1p-nA-sXY">
                     <rect key="frame" x="18" y="1" width="22" height="18"/>
                     <animations/>
-                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="H6K-s2-Flh">
+                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="08W-G3-5rV">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="toggleSetting:" target="7BY-dI-dk6" id="Yge-jA-LtN"/>
+                        <action selector="onToggleCheck:" target="dkS-k4-6KT" id="cbM-db-Gle"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YoW-JL-MB3">
-                    <rect key="frame" x="38" y="2" width="152" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c7S-Hb-djb">
+                    <rect key="frame" x="38" y="2" width="167" height="17"/>
                     <animations/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Start on Login" id="ZmI-pd-ys1">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Tweet prompt on complete" id="qrs-84-kkK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -34,9 +34,9 @@
             </subviews>
             <animations/>
             <connections>
-                <outlet property="button" destination="gD0-Yr-Eb8" id="I3c-rr-cy4"/>
+                <outlet property="button" destination="Y1p-nA-sXY" id="SIw-OT-THS"/>
             </connections>
-            <point key="canvasLocation" x="244.5" y="291"/>
+            <point key="canvasLocation" x="367.5" y="291"/>
         </customView>
     </objects>
 </document>

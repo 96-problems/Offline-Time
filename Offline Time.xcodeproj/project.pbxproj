@@ -28,6 +28,8 @@
 		408B2EB51BB93DCA001E3515 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408B2EB41BB93DCA001E3515 /* ServiceManagement.framework */; };
 		40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */; };
 		40CEF6471BBA7E810042CB6F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CEF6461BBA7E810042CB6F /* Reachability.swift */; };
+		40FE29DB1BD7756E00E3D415 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FE29DA1BD7756E00E3D415 /* TweetViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		40FE29DD1BD775A600E3D415 /* TweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FE29DC1BD775A600E3D415 /* TweetView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 		40CEF6461BBA7E810042CB6F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		40FA797A1BBA29F800A5A8E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		40FE29DA1BD7756E00E3D415 /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		40FE29DC1BD775A600E3D415 /* TweetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +128,12 @@
 				408B2E461BB923D5001E3515 /* ConfirmationTextManager.swift */,
 				408B2E3F1BB9111F001E3515 /* SALView.swift */,
 				408B2E301BB8FB43001E3515 /* SliderView.swift */,
+				40FE29DC1BD775A600E3D415 /* TweetView.swift */,
 				40076FB21BB8CF2A002DB024 /* MainMenu.xib */,
 				40076FC41BB8DC36002DB024 /* PopupMenu.xib */,
 				408B2E3B1BB90FB3001E3515 /* SALViewController.xib */,
 				40A15C661BB8F44D004A7FE2 /* SliderViewController.xib */,
+				40FE29DA1BD7756E00E3D415 /* TweetViewController.xib */,
 				405BEA721BBA6E2A00F216CF /* CustomSlider.swift */,
 				405BEA741BBA6E4A00F216CF /* CustomSliderCell.swift */,
 				40CEF6461BBA7E810042CB6F /* Reachability.swift */,
@@ -256,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40FE29DB1BD7756E00E3D415 /* TweetViewController.xib in Resources */,
 				40076F9A1BB8CF17002DB024 /* Images.xcassets in Resources */,
 				40A15C671BB8F44D004A7FE2 /* SliderViewController.xib in Resources */,
 				40076FB31BB8CF2A002DB024 /* MainMenu.xib in Resources */,
@@ -286,6 +293,7 @@
 				405BEA731BBA6E2A00F216CF /* CustomSlider.swift in Sources */,
 				40076F961BB8CF17002DB024 /* AppDelegate.swift in Sources */,
 				405BEA6F1BBA644100F216CF /* AppConstantsManager.swift in Sources */,
+				40FE29DD1BD775A600E3D415 /* TweetView.swift in Sources */,
 				405558351BB9497A0044D232 /* PALoginItemUtility.m in Sources */,
 				405BEA751BBA6E4A00F216CF /* CustomSliderCell.swift in Sources */,
 				40CEF6471BBA7E810042CB6F /* Reachability.swift in Sources */,
