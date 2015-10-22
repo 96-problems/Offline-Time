@@ -32,7 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         self.setupStatusItem()
-        self.promptForTweet()
     }
     
     func applicationShouldTerminate(sender: NSApplication) -> NSApplicationTerminateReply {
