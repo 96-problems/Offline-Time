@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Text1</key>
-	<string>We&apos;ll Still Be Here… (1)</string>
-	<key>Text2</key>
-	<string>You Could Keep It Up! (2)</string>
-	<key>Text3</key>
-	<string>Really Want to Give Up? (3)</string>
-	<key>Text4</key>
-	<string>Are You Sure? (4)</string>
-	<key>Text5</key>
 	<string>Cancel Offline Time? (5)</string>
+	<key>Text2</key>
+	<string>You want to give up? (4)</string>
+	<key>Text3</key>
+	<string>You can&apos;t do it? (3)</string>
+	<key>Text4</key>
+	<string>Are You Sure? (2)</string>
+	<key>Text5</key>
+	<string>Last chance..? (1)</string>
 </dict>
 </plist>
