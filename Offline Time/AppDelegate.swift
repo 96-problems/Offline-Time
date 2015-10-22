@@ -370,7 +370,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alert.addButtonWithTitle("Cancel")
             switch alert.runModal() {
                 case NSAlertFirstButtonReturn:
-                    NSWorkspace.sharedWorkspace().openURL(NSURL(string: self.constants.value("TweetURL") as! String)!)
+                    let rawTweetURL = self.constants.value("TweetURL") as! String,
+                        tweetURL = rawTweetURL.replaceCustomTagWithRequestedMinutes("\(self.sliderView!.requestedMinutes)min"),
+                        tweetURLstr = tweetURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+                    print(tweetURLstr)
+                    NSWorkspace.sharedWorkspace().openURL(NSURL(string: tweetURLstr)!)
                     break
                 default:
                     break
