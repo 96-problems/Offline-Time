@@ -21,9 +21,11 @@ class PopupMenu: NSMenu {
     @IBOutlet var quitMenuItem: NSMenuItem!
     @IBOutlet var sliderMenuItem: NSMenuItem!
     @IBOutlet var startAtLoginMenuItem: NSMenuItem!
+    @IBOutlet weak var toggleTweetMenuItem: NSMenuItem!
+    
     var startMenuItem: NSMenuItem!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

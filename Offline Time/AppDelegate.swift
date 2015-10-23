@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let mainBundle = NSBundle.mainBundle()
     var helperBundle: NSBundle!
     let constants = AppConstantsManager.sharedInstance
+    let appName = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleNameKey as String) as! String
     
     var statusItem: NSStatusItem?
     var sliderView: SliderView?
@@ -46,12 +47,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if let button = self.statusItem!.button {
             button.image = NSImage(named: "StatusBarButtonImage")
-            button.image?.setTemplate(true)
+            button.image?.template = true
         }
         
         //  Get menu
         var views: NSArray?
-        let foo = NSBundle.mainBundle().loadNibNamed("PopupMenu", owner: self, topLevelObjects: &views)
+        NSBundle.mainBundle().loadNibNamed("PopupMenu", owner: self, topLevelObjects: &views)
         var menu: PopupMenu!
         for view in views! {
             if view.isMemberOfClass(PopupMenu) {
@@ -62,31 +63,54 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //  Get sliderView
         var views2: NSArray?
-        let foo2 = NSBundle.mainBundle().loadNibNamed("SliderViewController", owner: self, topLevelObjects: &views2)
+        NSBundle.mainBundle().loadNibNamed("SliderViewController", owner: self, topLevelObjects: &views2)
         for view in views2! {
             if view.isMemberOfClass(SliderView) {
                 self.sliderView = view as? SliderView
             }
         }
-        
         self.popupMenu!.sliderMenuItem.view = sliderView
-//        self.sliderView.
+        
         
         //  Start at Login
         var salView: SALView!
         var views3: NSArray?
-        let foo3 = NSBundle.mainBundle().loadNibNamed("SALViewController", owner: self, topLevelObjects: &views3)
+        NSBundle.mainBundle().loadNibNamed("SALViewController", owner: self, topLevelObjects: &views3)
         for view in views3! {
             if view.isMemberOfClass(SALView) {
                 salView = view as! SALView
             }
         }
+        
         self.popupMenu!.startAtLoginMenuItem.view = salView
         (self.popupMenu!.startAtLoginMenuItem.view as! SALView).customDelegate = self.popupMenu
         let shouldStartOnStartup = PALoginItemUtility.isCurrentApplicatonInLoginItems()
         if shouldStartOnStartup {
             salView.button.integerValue = 1
         }
+        
+        
+        //  Tweet
+        var tweetView: TweetView!
+        var views4: NSArray?
+        NSBundle.mainBundle().loadNibNamed("TweetViewController", owner: self, topLevelObjects: &views4)
+        for view in views4! {
+            if view.isMemberOfClass(TweetView) {
+                tweetView = view as! TweetView
+            }
+        }
+        self.popupMenu!.toggleTweetMenuItem.view = tweetView
+        if self.defaults.boolForKey("SHOULD_PROMPT_TWEET") {
+            (self.popupMenu!.toggleTweetMenuItem.view as! TweetView).button.integerValue = 1
+        } else {
+            if !self.defaults.boolForKey("LAUNCHED_PREVIOUSLY") {
+                self.defaults.setBool(true, forKey: "LAUNCHED_PREVIOUSLY")
+                (self.popupMenu!.toggleTweetMenuItem.view as! TweetView).button.integerValue = 1
+            } else {
+                (self.popupMenu!.toggleTweetMenuItem.view as! TweetView).button.integerValue = 0
+            }
+        }
+        
         
         //  Start button
         let startButtonMenuItem = NSMenuItem(title: "Start Offline Time", action: "onSelectTime:", keyEquivalent: "")
@@ -167,10 +191,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image = NSImage(named: "StatusBarButtonImage2")
 //            button.image?.setTemplate(true)
 //        }
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(false, error: &error)
+        do {
+            try wifi!.setPower(false)
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
     func startWifi() {
@@ -178,10 +205,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            button.image = NSImage(named: "StatusBarButtonImage")
 //            button.image?.setTemplate(true)
 //        }
-        var error: NSError?
-        let iN = CWWiFiClient.sharedWiFiClient().interface().interfaceName
+        let iN = CWWiFiClient.sharedWiFiClient().interface()!.interfaceName
         let wifi = CWWiFiClient.sharedWiFiClient().interfaceWithName(iN)
-        let result = wifi.setPower(true, error: &error)
+        do {
+            try wifi!.setPower(true)
+        } catch let error as NSError {
+            print(error)
+        }
     }
 
     //  MARK: - Actions
@@ -189,7 +219,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if self.timer == nil && !self.runningInfinitely {
             self.sliderView?.timeSlider.enabled = false
             self.hideWifiIcon()
-            println("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
+            print("Starting timer with: \(self.sliderView?.requestedMinutes) Minutes.")
 //            #if RELEASE
                 self.stopWifi()
 //            #endif
@@ -207,7 +237,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     self.popupMenu?.startMenuItem.title = self.confTextManager!.getTextForCurrentCounter()
                 } else {
                     self.cancelTimer(shouldCongradulate: false)
-                    self.showWifiIcon()
                     self.runningInfinitely = false
                 }
             }
@@ -234,34 +263,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func checkTimer() {
         self.sliderView?.minutesRemaining--
-        println("Time remaining: \(self.sliderView?.minutesRemaining) Minutes.")
+        print("Time remaining: \(self.sliderView?.minutesRemaining) Minutes.")
         
         self.sliderView?.updateSlider()
         
         if self.sliderView?.minutesRemaining <= 0 {
             self.cancelTimer(shouldCongradulate: true)
-            println("Done!")
+            print("Done!")
         }
     }
     
     func checkTimerEverySecond() {
         self.sliderView?.secondsRemaining--
         self.sliderView?.updateTimerText()
-        println(self.sliderView?.secondsRemaining)
-        println(self.sliderView?.requestedSeconds)
         
-        if self.sliderView!.secondsRemaining + 5 < self.sliderView?.requestedSeconds {
-            if Reachability.isConnectedToNetwork() {
-                println("Online")
-                self.cancelTimer(shouldCongradulate: false)
-            } else {
-                println("Good, your offline")
-            }
+        guard self.sliderView!.secondsRemaining + 5 < self.sliderView?.requestedSeconds else {
+            return
+        }
+        if Reachability.isConnectedToNetwork() {
+            //  No ....
+            //self.cancelTimer(shouldCongradulate: false)
+            self.forceContinuationOfTimer()
+        } else {
+            //  Keep it up!
         }
     }
     
+    func forceContinuationOfTimer() {
+        self.stopWifi()
+        self.showNotificationOnQuitAttempt()
+    }
+    
     func runInfinitely() {
-        println("Running infinitely")
+        print("Running infinitely")
         if self.confTextManager == nil {
             self.confTextManager = ConfirmationTextManager()
         }
@@ -271,8 +305,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.sliderView?.remainingLabel.stringValue = "Running Infinitely"
     }
     
-    func cancelTimer(#shouldCongradulate: Bool) {
-        println("Canceling timer")
+    func cancelTimer(shouldCongradulate shouldCongradulate: Bool) {
+        print("Canceling timer")
         self.popupMenu?.quitMenuItem.hidden = false
         self.timer?.invalidate()
         self.timer = nil
@@ -283,40 +317,65 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        #if RELEASE
             self.startWifi()
 //        #endif
-        self.popupMenu?.startMenuItem.title = "Start Offline Time"
+        self.popupMenu?.startMenuItem.title = "Start \(self.appName)"
 
         if shouldCongradulate {
-            self.showNotificationOnTimerCompletion(self.sliderView!.requestedMinutes)
+            self.showNotificationOnTimerCompletion()
         } else if !shouldCongradulate && (self.confTextManager?.counter == self.confTextManager!.texts.count + 1) {
         } else {
-            self.showNotificationOnWifiOn(self.sliderView!.requestedMinutes)
+            self.showNotificationOnWifiOn()
         }
-        self.sliderView?.remainingLabel.stringValue = "Offline Time: 10 Minutes"
+        self.sliderView?.remainingLabel.stringValue = "\(self.appName): 10 Minutes"
         self.sliderView?.timeSlider.integerValue = 1
         self.confTextManager?.counter = 1
         self.sliderView?.resetTimes()
         self.confTextManager = nil
     }
     
-    func showNotificationOnTimerCompletion(duration: Int) {
-        let durationText = self.sliderView!.convertMinutesIntoRegularFormat(duration)
-        
-        println("Sending positive notification")
+    func showNotificationOnTimerCompletion() {
+        self.notify(self.constants.value("CONGRATULATION_MSG") as! String)
+        self.promptForTweet()
+    }
+    
+    func showNotificationOnWifiOn() {
+        self.notify(self.constants.value("TOO_BAD_MSG") as! String)
+    }
+    
+    func showNotificationOnQuitAttempt() {
+        self.notify(self.constants.value("DENY_MSG") as! String)
+    }
+    
+    func notify(text: String) {
         let notification = NSUserNotification()
-        notification.title = "Offline Time"
-//        notification.subtitle = "Foo"
-        notification.informativeText = "Congrats! You completed O.T. of \(durationText)🕒"
+        notification.title = self.appName
+        notification.informativeText = text.replaceCustomTagWithRequestedMinutes(self.sliderView!.convertMinutesIntoRegularFormat(self.sliderView!.requestedMinutes))
         NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
     }
     
-    func showNotificationOnWifiOn(duration: Int) {
-        let durationText = self.sliderView!.convertMinutesIntoRegularFormat(duration)
-        
-        //println("Sending negative notification")
-        let notification = NSUserNotification()
-        notification.title = "Offline Time"
-        notification.informativeText = "Hmm… Too bad you missed your goal of \(durationText)😔"
-        NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+    func promptForTweet() {
+        if self.defaults.boolForKey("SHOULD_PROMPT_TWEET") {
+            
+            //  Just in case someone completes infinite...
+            guard self.sliderView!.requestedMinutes > 0 else { return }
+            
+            let alert = NSAlert()
+            let askMsg = self.constants.value("SuggestTweetMsg") as? NSString
+            alert.messageText = askMsg!.stringByReplacingOccurrencesOfString("\\n", withString: "\n")
+            alert.addButtonWithTitle("Tweet")
+            alert.addButtonWithTitle("Cancel")
+            switch alert.runModal() {
+                case NSAlertFirstButtonReturn:
+                    let rawTweetURL = self.constants.value("TweetURL") as! String,
+                        tweetURL = rawTweetURL.replaceCustomTagWithRequestedMinutes("\(self.sliderView!.requestedMinutes)min"),
+//                        tweetURLstr = tweetURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+                        tweetURLstr = tweetURL.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+                    
+                    NSWorkspace.sharedWorkspace().openURL(NSURL(string: tweetURLstr!)!)
+                    break
+                default:
+                    break
+            }
+        }
     }
 }
 
@@ -337,8 +396,13 @@ extension AppDelegate: PopupMenuDelegate {
 extension AppDelegate: NSUserNotificationCenterDelegate {
     func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
     }
-    
     func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
         return true
+    }
+}
+
+extension String {
+    func replaceCustomTagWithRequestedMinutes(minutes: String) -> String {
+        return stringByReplacingOccurrencesOfString("{{ minutes }}", withString: "\(minutes)")
     }
 }

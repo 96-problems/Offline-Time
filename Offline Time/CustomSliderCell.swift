@@ -9,12 +9,12 @@
 import Cocoa
 
 class CustomSliderCell: NSSliderCell {
-    let dict = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain) as! [String: AnyObject]
+    let dict: [String: AnyObject] = NSUserDefaults.standardUserDefaults().persistentDomainForName(NSGlobalDomain)!
     
     var activeColor = NSColor(calibratedRed: 236/255, green: 92/255, blue: 111/255, alpha: 1.0)
     var inactiveColor = NSColor(calibratedRed: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -22,7 +22,7 @@ class CustomSliderCell: NSSliderCell {
         let style = self.dict["AppleInterfaceStyle"]
         var image = NSImage(named: "SliderKnob")
         if let darkModeOn = style as? String {
-            println(darkModeOn)
+            print(darkModeOn)
             if darkModeOn == "Dark" || darkModeOn == "dark" {
                 image = NSImage(named: "SliderKnobDark")
             }
@@ -39,7 +39,7 @@ class CustomSliderCell: NSSliderCell {
     override func drawBarInside(aRect: NSRect, flipped: Bool) {
         let style = self.dict["AppleInterfaceStyle"]
         if let darkModeOn = style as? String {
-            println(darkModeOn)
+            print(darkModeOn)
             if darkModeOn == "Dark" || darkModeOn == "dark" {
                 self.activeColor = NSColor(calibratedRed: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
             }

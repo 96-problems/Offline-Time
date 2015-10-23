@@ -6,5 +6,15 @@
 	<string>http://www.96problems.com/first-draft</string>
 	<key>96ProblemsURL</key>
 	<string>http://www.96problems.com/</string>
+	<key>TweetURL</key>
+	<string>https://www.twitter.com/intent/tweet?text=Completed🕑{{ minutes }} of Offline Time doing […insert your activity…] ! Give it a go and see how much you&apos;ll get done! http://96problems.com/offline-time&amp;source=webclient</string>
+	<key>SuggestTweetMsg</key>
+	<string>Congrats! Would you like to tweet about your accomplishment?</string>
+	<key>CONGRATULATION_MSG</key>
+	<string>Congrats! You completed O.T. of {{ minutes }}🕒</string>
+	<key>TOO_BAD_MSG</key>
+	<string>Hmm… Too bad you missed your goal of {{ minutes }}😔</string>
+	<key>DENY_MSG</key>
+	<string>Uh uh uh! {{ minutes }}😔</string>
 </dict>
 </plist>

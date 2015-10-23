@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -42,6 +42,9 @@
                                     <action selector="toggleStartup:" target="SBS-PR-J85" id="yxa-M8-rI3"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="&lt;&lt; Toggle Tweet &gt;&gt;" id="YT2-Ff-S6o">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
                             <menuItem title="Quit" keyEquivalent="q" id="hWA-Ys-oEi">
                                 <connections>
                                     <action selector="quitButtonPressed:" target="SBS-PR-J85" id="qKt-RC-B5L"/>
@@ -57,6 +60,7 @@
                 <outlet property="quitMenuItem" destination="hWA-Ys-oEi" id="Wrb-NL-ren"/>
                 <outlet property="sliderMenuItem" destination="LB0-Bn-f25" id="Zji-Pa-w01"/>
                 <outlet property="startAtLoginMenuItem" destination="L5X-dw-GB0" id="pQH-hJ-2xF"/>
+                <outlet property="toggleTweetMenuItem" destination="YT2-Ff-S6o" id="rKY-93-grK"/>
             </connections>
             <point key="canvasLocation" x="194.5" y="194.5"/>
         </menu>
@@ -64,6 +68,7 @@
         <button verticalHuggingPriority="750" id="jJr-29-NyE">
             <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <animations/>
             <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EJ7-XG-lf3">
                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                 <font key="font" metaFont="system"/>
